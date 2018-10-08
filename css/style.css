@@ -3,6 +3,12 @@
     height: 400px;
 }
 #right {
-    background-color: #0b2e13;
+    background-color: rosybrown;
     height: 400px;
+}
+
+img {
+    padding-top: 20px;
+    max-width:100%;
+    max-height:100%;
 }
