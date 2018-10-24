@@ -1,5 +1,5 @@
 body{
-   background-image: url("../images/Thomond-Park-Stadium_00.jpg");
+   
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -20,3 +20,4 @@ img {
     max-width:100%;
     max-height:100%;
 }
+
