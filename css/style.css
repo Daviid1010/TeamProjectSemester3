@@ -7,6 +7,24 @@ body{
     background-repeat: no-repeat;
 }
 
+.navbar-custom {
+    background-color: #016946;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
 #left {
     background-color: blue;
     height: 400px;
@@ -15,9 +33,72 @@ body{
     height: 400px;
 }
 
+
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#brand-image
+{
+    height: 50px;
+}
+
+.icon
+{
+    height: 10px;
+    margin-top: 5px;
+}
+
 img {
-    padding-top: 20px;
     max-width:100%;
     max-height:100%;
 }
+
+.third {
+}
+
+#account {
+    background-color: white;
+}
+
+#forwards {
+    background-color: white;
+    border: 1px solid black;
+}
+
+#forwards img {
+    float: left;
+}
+
+#backs {
+    background-color: white;
+}
+
+#accountinfo {
+    padding: 10px;
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #016946;
+    color: white;
+}
+
+.player {
+    display: inline-block;
+    width: 100%;
+    float: left;
+    height: 200px;
+}
+
+
+.player-text {
+    float: right;
+}
+
+
 

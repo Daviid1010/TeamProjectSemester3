@@ -10,8 +10,10 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Play Now</a>
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+  <a class="navbar-brand" href="#">
+      <img id="brand-image" src="images/rugbylogo.png" alt="Italian Trulli">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,23 +31,155 @@
      
     </ul>
   </div>
- 
+</nav>
 
- 
-</nav>					
+<br>
 
     <div class="row">
-        <div class="col-1"></div>
-        <div class="col-2" id="left">
+        <div class="col-sm-2 third" id="account">
+            <div id="accountinfo"  align="center">
+                <img src="images/davy.jpg" class="img-fluid rounded-circle">
+                <h2>Daviid1010</h2>
+                <br>
+                <h2>Wins</h2>
+                <h3>20</h3>
+                <br>
+                <h2>Losses</h2>
+                <h3>4</h3>
+                <br>
+                <h2>Points</h2>
+                <h3>615</h3>
+            </div>
+
         </div>
-        <div class="col-8" id="right">
-            <h2>Fantasy Rugby</h2>
-            <p>Testing testing 123</p>
-            <p>Hello</p>
-            <h1>Hello Worldss</h1>
-            <h1>Home test</h1>
+        <div class="col-sm-5 players third" id="forwards">
+
+            <div class="text-center player">
+                <img class="rounded-circle img-fluid" src="images/sArnold.png" alt="Italian Trulli" style="display: inline-block;"/>
+                <div class="player-text">
+                    <h3>Sammy Arnold</h3>
+                    <ul style="list-style-type:none">
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Overall Rating: 82</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Position: Center</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Team: Munster</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center player">
+                <img class="rounded-circle img-fluid"src="images/aWarwick.png" alt="Italian Trulli">
+                <div class="player-text">
+                    <h3>Andy Warwick</h3>
+                    <ul style="list-style-type:none">
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Overall Rating: 78</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Position: Prop</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Team: Ulster</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center player">
+                <img class="rounded-circle img-fluid"  src="images/tOdonnell.png" alt="Italian Trulli">
+                <div class="player-text">
+                    <h3>Tommy O'Donnell</h3>
+                    <ul style="list-style-type:none">
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Overall Rating: 84</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Position: Back Row</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Team: Munster</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center player">
+                <img class="rounded-circle img-fluid"  src="images/cGilroy.png" alt="Italian Trulli">
+                <div class="player-text">
+                    <h3>Craig Gilroy</h3>
+                    <ul style="list-style-type:none">
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Overall Rating: 83</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Position: Wing</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Team: Ulster</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="text-center player">
+                <img class="rounded-circle img-fluid"  src="images/aO'Connor.png" alt="Italian Trulli">
+                <div class="player-text">
+                    <h3>Alan O'Connor</h3>
+                    <ul style="list-style-type:none">
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Overall Rating: 75</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Position: Lock</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Team: Ulster</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center player">
+                <img class="rounded-circle img-fluid" src="images/tBlyendaal.png" alt="Italian Trulli">
+                <div class="player-text">
+                    <h3>Tyler Blyendaal</h3>
+                    <ul style="list-style-type:none">
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Overall Rating: 84</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Position: Fly Half / Center</li>
+                        <li><img class="icon" src="images/iconrugby.png" alt="alternative text for your image"> Team: Munster</li>
+                    </ul>
+                </div>
+            </div>
+
+
         </div>
-        <div class="col-1"></div>
+        <div class="col-sm-5 players third" id="backs">
+            <h1>Forwards</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Position</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Province</th>
+                    <th scope="col">Games</th>
+                    <th scope="col">Points</th>
+                    <th scope="col">Rating</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>John Hayes</td>
+                    <td>Munster</td>
+                    <td>113</td>
+                    <td>25</td>
+                    <td>8.9</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h1>Backs</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Position</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Province</th>
+                    <th scope="col">Games</th>
+                    <th scope="col">Points</th>
+                    <th scope="col">Rating</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">9</th>
+                    <td>Connor Murray</td>
+                    <td>Munster</td>
+                    <td>86</td>
+                    <td>56</td>
+                    <td>9.5</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
