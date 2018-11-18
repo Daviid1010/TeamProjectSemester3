@@ -68,7 +68,8 @@ img {
 
 #forwards {
     background-color: white;
-    border: 1px solid black;
+    padding: 10px;
+    background-color: #016946;
 }
 
 #forwards img {
@@ -99,6 +100,74 @@ img {
 .player-text {
     float: right;
 }
+
+.playerRow {
+    width: 100%;
+    height: 150px;
+    padding-bottom: 15px;
+}
+
+.playerBox {
+    width: 20%;
+    height: 100px;
+    margin: 0px;
+    float: left;
+    background-size: 100% 100%;
+}
+
+.full {
+    border: 1px solid black;
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+#player1 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/dKilcoyne.png");
+}
+
+#player2 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/nScannell.png");
+}
+#player3 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/sArcher.png");
+}
+#player4 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/jKleyn.png");
+}
+#player5 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/tBeirne.png");
+}
+#player6 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/pOmahony.png");
+ }
+#player7 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/cCloete.png");
+}
+#player8 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/cStander.png");
+}
+#player9 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/cMurray.png");
+}
+#player10 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/jCarbery.png");
+}
+#player11 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/kEarls.png");
+}
+#player12 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/dGoggin.png");
+}
+#player13 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/rScannell.png");
+}
+#player14 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/aWootton.png");
+}
+#player15 {
+    background-image: url("../images/Ulster&MunsterPics/Munster/aConway.png");
+}
+
 
 
 
