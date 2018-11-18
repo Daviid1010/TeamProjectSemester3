@@ -82,7 +82,7 @@ img {
 #forwards {
     background-color: white;
     padding: 10px;
-    background-color: #016946;
+    background-color: green;
 }
 
 #forwards img {
@@ -129,9 +129,8 @@ img {
 }
 
 .full {
-    border: 1px solid black;
-    background-color: lightblue;
     font-weight: bold;
+    color: white;
 }
 
 #player1 {
