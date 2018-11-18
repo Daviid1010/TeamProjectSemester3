@@ -109,7 +109,6 @@ img {
     height: 200px;
 }
 
-
 .player-text {
     float: right;
 }
@@ -122,10 +121,10 @@ img {
 
 .playerBox {
     width: 20%;
-    height: 100px;
+    height: 140px;
     margin: 0px;
     float: left;
-    background-size: 100% 100%;
+
 }
 
 .full {
@@ -133,6 +132,26 @@ img {
     color: white;
 }
 
+.playerImage {
+    background-size: 100% 100%;
+    width: 100%;
+    float: left;
+    height: 100px;
+}
+.playerUnder {
+    border: 1px solid black;
+    height: 40px;
+    text-align: center;
+    float: left;
+    width: 100%;
+    vertical-align: middle;
+    background-color: darkblue;
+    color: white;
+    line-height: 40px;
+}
+
+
+/* Player Images URLs hardcoded*/
 #player1 {
     background-image: url("../images/Ulster&MunsterPics/Munster/dKilcoyne.png");
 }
