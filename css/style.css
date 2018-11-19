@@ -151,6 +151,54 @@ img {
 }
 
 
+@media (max-width: 800px) {
+    #account {
+        display: block;
+        height: auto;
+        overflow: auto;
+        margin-bottom: 20px;
+    }
+
+    #accountinfo  h1,h2,h3{
+        text-align: left;
+        width: 50%;
+        display: inline;
+        margin: 0px;
+        font-size: 1.5em;
+        float: right;
+        text-align: right;
+    }
+    #accountinfo br {
+        display: none;
+    }
+    #accountinfo img {
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    #play {
+        margin-top: 10px;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .full {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 70%;
+    }
+    .playerRow *{
+        margin: 0 auto;
+        display: inline;
+    }
+    #forwards {
+        padding-left: 4%;
+        padding-right: 4%;
+        margin: 2%;
+    }
+}
+
+
 /* Player Images URLs hardcoded*/
 #player1 {
     background-image: url("../images/Ulster&MunsterPics/Munster/dKilcoyne.png");

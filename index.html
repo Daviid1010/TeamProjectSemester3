@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Hello World</title>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/bootstrap-grid.css"/>
     <link rel="stylesheet" href="css/bootstrap-reboot.css"/>
@@ -37,7 +38,7 @@
 <br>
 
     <div class="row">
-        <div class="col-sm-2 third" id="account">
+        <div class="col-lg-2 col-md-12  third" id="account">
             <div id="accountinfo"  align="center">
                 <img src="images/davy.jpg" class="img-fluid rounded-circle">
                 <h2>Daviid1010</h2>
@@ -57,93 +58,92 @@
             </div>
 
         </div>
-        <div class="col-sm-5 players third" id="forwards">
+        <div class="col-lg-5 col-md-12 players third" id="forwards">
 
             <div class="playerRow">
                 <!--Front Row -->
-                <div class="playerBox full">
+                <div class="playerBox full threeFull">
                     <div id="player1" class="playerImage"></div>
                     <div class="playerUnder">1. Kilcoyne</div>
                 </div>
-                <div class="playerBox"></div>
-                <div class="playerBox full">
+                <div class="playerBox empty threeEmpty"></div>
+                <div class="playerBox full threeFull">
                     <div id="player2" class="playerImage"></div>
                     <div class="playerUnder">2. Scannell</div>
                 </div>
-                <div class="playerBox"></div>
-                <div class="playerBox full">
+                <div class="playerBox empty threeEmpty"></div>
+                <div class="playerBox full threeFull">
                     <div id="player3" class="playerImage"></div>
                     <div class="playerUnder">3. Archer</div>
                 </div>
             </div>
 
             <div class="playerRow">
-                <div class="playerBox"></div>
-                <div class="playerBox full">
+                <div class="playerBox empty twoEmpty"></div>
+                <div class="playerBox full twoFull">
                     <div id="player4" class="playerImage"></div>
                     <div class="playerUnder">4. Kleyn</div>
                 </div>
-                <div class="playerBox"></div>
+                <div class="playerBox empty twoEmpty"></div>
                 <div class="playerBox full">
                     <div id="player5" class="playerImage"></div>
                     <div class="playerUnder">5. Beirne</div>
                 </div>
-                <div class="playerBox"></div>
+                <div class="playerBox empty twoEmpty"></div>
             </div>
             <div class="playerRow">
-                <div class="playerBox full">
+                <div class="playerBox full threeFull">
                     <div id="player6" class="playerImage"></div>
                     <div class="playerUnder">6. O'Mahony</div>
                 </div>
-                <div class="playerBox"></div>
-                <div class="playerBox full">
+                <div class="playerBox empty threeEmpty"></div>
+                <div class="playerBox full threeFull">
                     <div id="player8" class="playerImage"></div>
                     <div class="playerUnder">8. Stander</div>
                 </div>
-                <div class="playerBox"></div>
-                <div class="playerBox full">
+                <div class="playerBox empty threeEmpty"></div>
+                <div class="playerBox full threeFull">
                     <div id="player7" class="playerImage"></div>
                     <div class="playerUnder">7. Cleote</div>
                 </div>
             </div>
             <div class="playerRow">
-                <div class="playerBox"></div>
+                <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player9" class="playerImage"></div>
                     <div class="playerUnder">9. Murray</div>
                 </div>
-                <div class="playerBox"></div>
+                <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player10" class="playerImage"></div>
                     <div class="playerUnder">10. Carbery</div>
                 </div>
-                <div class="playerBox"></div>
+                <div class="playerBox empty"></div>
             </div>
             <div class="playerRow">
-                <div class="playerBox"></div>
+                <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player12" class="playerImage"></div>
                     <div class="playerUnder">12. Goggin</div>
                 </div>
-                <div class="playerBox"></div>
+                <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player13" class="playerImage"></div>
                     <div class="playerUnder">13. Scannell</div>
                 </div>
-                <div class="playerBox"></div>
+                <div class="playerBox empty"></div>
             </div>
             <div class="playerRow">
-
                 <div class="playerBox full">
                     <div id="player11" class="playerImage"></div>
                     <div class="playerUnder">11. Earls</div>
                 </div>
-                <div class="playerBox"></div>
+                <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player15" class="playerImage"></div>
                     <div class="playerUnder">15. Conway</div>
                 </div>
-                <div class="playerBox"></div>
+                <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player14" class="playerImage"></div>
                     <div class="playerUnder">14. Wooten</div>
@@ -151,7 +151,7 @@
             </div>
         </div>
 
-        <div class="col-sm-5 players third" id="backs">
+        <div class="col-lg-5 col-md-12 players third" id="backs">
             <h1>Forwards</h1>
             <table class="table table-hover">
                 <thead>
@@ -307,12 +307,6 @@
             </table>
         </div>
     </div>
-
-
-
-
-
-
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
 </body>
