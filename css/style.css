@@ -80,9 +80,9 @@ img {
 }
 
 #forwards {
-    background-color: white;
     padding: 10px;
-    background-color: green;
+    background-image: url("../images/pitchtest.jpg");
+    background-size: cover;
 }
 
 #forwards img {
@@ -150,6 +150,18 @@ img {
     line-height: 40px;
 }
 
+/*
+#innerWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+*/
+
 
 @media (max-width: 800px) {
     #account {
@@ -195,6 +207,13 @@ img {
         padding-left: 4%;
         padding-right: 4%;
         margin: 2%;
+    }
+    #backs {
+        display: none;
+    }
+
+    .full span {
+        display: none;
     }
 }
 
