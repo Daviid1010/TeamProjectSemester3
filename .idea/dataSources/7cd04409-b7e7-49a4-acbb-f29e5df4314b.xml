@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="fantasy_rugby@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="fantasy_rugby">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="dreamhome"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="school"/>
+    <schema id="8" parent="1" name="sys"/>
+    <schema id="9" parent="1" name="videos"/>
+    <table id="10" parent="2" name="league_tables"/>
+    <table id="11" parent="2" name="leagues"/>
+    <table id="12" parent="2" name="players"/>
+    <table id="13" parent="2" name="team_rosters"/>
+    <table id="14" parent="2" name="teams"/>
+    <table id="15" parent="2" name="users"/>
+    <column id="16" parent="10" name="LeagueTableID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="10" name="TeamID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="18" parent="10" name="LeagueID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="19" parent="10" name="points">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="20" parent="10" name="games">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="21" parent="10" name="wins">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="22" parent="10" name="losses">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="23" parent="10" name="draws">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="24" parent="10" name="LeagueID">
+      <ColNames>LeagueID</ColNames>
+    </index>
+    <index id="25" parent="10" name="TeamID">
+      <ColNames>TeamID</ColNames>
+    </index>
+    <key id="26" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>LeagueTableID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="27" parent="10" name="league_tables_ibfk_1">
+      <ColNames>TeamID</ColNames>
+      <RefSchemaName>fantasy_rugby</RefSchemaName>
+      <RefTableName>teams</RefTableName>
+      <RefColNames>teamid</RefColNames>
+    </foreign-key>
+    <foreign-key id="28" parent="10" name="league_tables_ibfk_2">
+      <ColNames>LeagueID</ColNames>
+      <RefSchemaName>fantasy_rugby</RefSchemaName>
+      <RefTableName>leagues</RefTableName>
+      <RefColNames>leagueid</RefColNames>
+    </foreign-key>
+    <column id="29" parent="11" name="LeagueID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="11" name="league_name">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="31" parent="11" name="userAdmin">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="32" parent="11" name="prize">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="33" parent="11" name="userAdmin">
+      <ColNames>userAdmin</ColNames>
+    </index>
+    <key id="34" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>LeagueID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="35" parent="11" name="leagues_ibfk_1">
+      <ColNames>userAdmin</ColNames>
+      <RefSchemaName>fantasy_rugby</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>userid</RefColNames>
+    </foreign-key>
+    <column id="36" parent="12" name="PlayerID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="12" name="PlayerName">
+      <Position>2</Position>
+      <DataType>varchar(22)|0</DataType>
+    </column>
+    <column id="38" parent="12" name="PlayerPosition">
+      <Position>3</Position>
+      <DataType>varchar(22)|0</DataType>
+    </column>
+    <column id="39" parent="12" name="Province">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="40" parent="12" name="Caps">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="41" parent="12" name="Points">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="42" parent="12" name="Rating">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="43" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>PlayerID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="13" name="TeamRosterID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="45" parent="13" name="TeamID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="46" parent="13" name="PlayerID">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="47" parent="13" name="tries">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="48" parent="13" name="games">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="49" parent="13" name="PlayerID">
+      <ColNames>PlayerID</ColNames>
+    </index>
+    <index id="50" parent="13" name="TeamID">
+      <ColNames>TeamID</ColNames>
+    </index>
+    <key id="51" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>TeamRosterID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="52" parent="13" name="team_rosters_ibfk_1">
+      <ColNames>TeamID</ColNames>
+      <RefSchemaName>fantasy_rugby</RefSchemaName>
+      <RefTableName>teams</RefTableName>
+      <RefColNames>teamid</RefColNames>
+    </foreign-key>
+    <foreign-key id="53" parent="13" name="team_rosters_ibfk_2">
+      <ColNames>PlayerID</ColNames>
+      <RefSchemaName>fantasy_rugby</RefSchemaName>
+      <RefTableName>players</RefTableName>
+      <RefColNames>playerid</RefColNames>
+    </foreign-key>
+    <column id="54" parent="14" name="TeamID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="55" parent="14" name="TeamName">
+      <Position>2</Position>
+      <DataType>varchar(22)|0</DataType>
+    </column>
+    <key id="56" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>TeamID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="57" parent="15" name="UserID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="15" name="username">
+      <Position>2</Position>
+      <DataType>varchar(22)|0</DataType>
+    </column>
+    <column id="59" parent="15" name="pword">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="60" parent="15" name="score">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="61" parent="15" name="TeamID">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="62" parent="15" name="TeamID">
+      <ColNames>TeamID</ColNames>
+    </index>
+    <key id="63" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>UserID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="64" parent="15" name="users_ibfk_1">
+      <ColNames>TeamID</ColNames>
+      <RefSchemaName>fantasy_rugby</RefSchemaName>
+      <RefTableName>teams</RefTableName>
+      <RefColNames>teamid</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
