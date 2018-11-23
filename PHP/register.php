@@ -14,11 +14,7 @@
         <?php include('errors.php'); ?>
         <div class="input-group">
             <label>Username</label>
-            <input type="text" name="username" value="<?php echo $username; ?>">
-        </div>
-        <div class="input-group">
-            <label>Email</label>
-            <input type="email" name="email" value="<?php echo $email; ?>">
+            <input type="text" name="username">
         </div>
         <div class="input-group">
             <label>Password</label>
@@ -26,7 +22,12 @@
         </div>
         <div class="input-group">
             <label>Confirm password</label>
-            <input type="password_2">
+            <input type="password" name="password_2">
+        </div class="input-group">
+            <label>Team Name</label>
+            <input type="text" name="team">
+        <div>
+
         </div>
         <div class="input-group">
             <button type="submit" class="btn" name="reg_user">Register</button>

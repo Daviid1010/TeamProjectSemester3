@@ -2,13 +2,12 @@
 session_start();
 
 // initializing variables
-$username = "";
-$host="127.0.0.1";
+$host="localhost";
 $port=3306;
 $socket="";
 $user="root";
-$password="";
-$dbname="";
+$password="password";
+$dbname="fantasy_rugby";
 
 $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 or die ('Could not connect to the database server' . mysqli_connect_error());
@@ -17,7 +16,7 @@ or die ('Could not connect to the database server' . mysqli_connect_error());
 $errors = array();
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'registration');
+$db = mysqli_connect('localhost', 'root', 'password', 'fantasy_rugby');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -26,6 +25,7 @@ if (isset($_POST['reg_user'])) {
     //$email = mysqli_real_escape_string($db, $_POST['email']);
     $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
     $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
+    $team = mysqli_real_escape_string($db, $_POST['team']);
 
     // validate count errors
     if (empty($username)) { array_push($errors, "Username is required"); }
@@ -55,8 +55,19 @@ if (isset($_POST['reg_user'])) {
     if (count($errors) == 0) {
         $password = md5($password_1);//encrypt the password before saving in the database
 
-        $query = "INSERT INTO users (username, pword) 
-  			  VALUES('$username', '$password')";
+
+        $queryteam = "INSERT INTO teams (TeamName) VALUES ('$team') ";
+        $queryteam2 = "SELECT TeamID FROM teams WHERE TeamName='$team'";
+
+        mysqli_query($db, $queryteam);
+
+
+        $teamres =  mysqli_query($db, $queryteam2);
+        $teamID = mysqli_fetch_assoc($teamres)['TeamID'];
+        echo mysqli_fetch_assoc($teamres)['TeamID'];
+
+        $query = "INSERT INTO users (username, pword, score, TeamID) 
+  			  VALUES('$username', '$password',100, $teamID)";
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
