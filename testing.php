@@ -26,14 +26,12 @@ if ($con->connect_error) {
 echo "Connected successfully";
 
 $sql = "SELECT team_rosters.PlayerID, PlayerName, Province FROM players JOIN team_rosters ON team_rosters.PlayerID = players.PlayerID WHERE team_rosters.TeamID=1;";
-$usersql = "SELECT username, score, t.TeamName FROM users JOIN teams t on users.TeamID = t.TeamID WHERE users.username='David'";
 $result = mysqli_query($con, $sql);
-$userResult = mysqli_query($con, $usersql);
 
 if ($result === false) {
     printf(mysqli_error($con));
 }
-/*
+
 if (mysqli_num_rows($result) > 0) {
 
     echo "<table>
@@ -47,13 +45,16 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         echo "<tr><th>" . $row["PlayerName"]. "</th><th>" . $row["Province"]. "</th></tr>";
     }
+    echo "</table>";
 } else {
     echo "0 results";
 }
 
-echo "</table>";
 
-*/
+
+
+$usersql = "SELECT username, score, t.TeamName FROM users JOIN teams t on users.TeamID = t.TeamID";
+$userResult = mysqli_query($con, $usersql);
 
 
 if ($userResult === false) {
