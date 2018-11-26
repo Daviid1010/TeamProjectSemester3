@@ -11,6 +11,19 @@
  *
  * Make final changes to Database on players, league_tables, team_rosters, leagues
  *
+ * Registration:
+ * Team is created at when user is created, make it a hard coded team with s fair mix of players, some poor some good
+ *
+ * SELECT players
+ * 2 props
+ * 1 hooker
+ * 2 locks
+ * 3 back rows
+ * 1 scrum half 1 fly half
+ * 2 centres
+ * 2 wingers 1 full back
+ *
+ *
  * Game:
  * Create function that plays two teams together
  * Allows team to play others on the league

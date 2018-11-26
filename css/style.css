@@ -220,17 +220,17 @@ img {
 
 /* Player Images URLs hardcoded*/
 #player1 {
-    background-image: url("../images/Munster/dKilcoyne.png");
+    background-image: url("../images/Ulster/aWarwick.png");
 }
 
 #player2 {
-    background-image: url("../images/Munster/nScannell.png");
+    background-image: url("../images/Ulster/rBest.png");
 }
 #player3 {
     background-image: url("../images/Munster/sArcher.png");
 }
 #player4 {
-    background-image: url("../images/Munster/jKleyn.png");
+    background-image: url("../images/Ulster/iHenderson.png");
 }
 #player5 {
     background-image: url("../images/Munster/tBeirne.png");
@@ -239,7 +239,7 @@ img {
     background-image: url("../images/Munster/pOmahony.png");
  }
 #player7 {
-    background-image: url("../images/Munster/cCloete.png");
+    background-image: url("../images/Ulster/jDeysel.png");
 }
 #player8 {
     background-image: url("../images/Munster/cStander.png");
@@ -248,19 +248,19 @@ img {
     background-image: url("../images/Munster/cMurray.png");
 }
 #player10 {
-    background-image: url("../images/Munster/jCarbery.png");
+    background-image: url("../images/Munster/jHanrahan.png");
 }
 #player11 {
     background-image: url("../images/Munster/kEarls.png");
 }
 #player12 {
-    background-image: url("../images/Munster/dGoggin.png");
+    background-image: url("../images/Ulster/sMcCloskey.png");
 }
 #player13 {
     background-image: url("../images/Munster/rScannell.png");
 }
 #player14 {
-    background-image: url("../images/Munster/aWootton.png");
+    background-image: url("../images/Ulster/jStockdale.png");
 }
 #player15 {
     background-image: url("../images/Munster/aConway.png");

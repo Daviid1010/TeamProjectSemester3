@@ -64,17 +64,17 @@
                 <!--Front Row -->
                 <div class="playerBox full threeFull">
                     <div id="player1" class="playerImage"></div>
-                    <div class="playerUnder">1. <span>Kilcoyne</span></div>
+                    <div class="playerUnder">1. <span>Prop</span></div>
                 </div>
                 <div class="playerBox empty threeEmpty"></div>
                 <div class="playerBox full threeFull">
                     <div id="player2" class="playerImage"></div>
-                    <div class="playerUnder">2. <span>Scannell</span></div>
+                    <div class="playerUnder">2. <span>Hooker</span></div>
                 </div>
                 <div class="playerBox empty threeEmpty"></div>
                 <div class="playerBox full threeFull">
                     <div id="player3" class="playerImage"></div>
-                    <div class="playerUnder">3. <span>Archer</span></div>
+                    <div class="playerUnder">3. <span>Prop</span></div>
                 </div>
             </div>
 
@@ -82,41 +82,41 @@
                 <div class="playerBox empty twoEmpty"></div>
                 <div class="playerBox full twoFull">
                     <div id="player4" class="playerImage"></div>
-                    <div class="playerUnder">4. <span>Kleyn</span></div>
+                    <div class="playerUnder">4. <span>Lock</span></div>
                 </div>
                 <div class="playerBox empty twoEmpty"></div>
                 <div class="playerBox full">
                     <div id="player5" class="playerImage"></div>
-                    <div class="playerUnder">5. <span>Beirne</span></div>
+                    <div class="playerUnder">5. <span>Lock</span></div>
                 </div>
                 <div class="playerBox empty twoEmpty"></div>
             </div>
             <div class="playerRow">
                 <div class="playerBox full threeFull">
                     <div id="player6" class="playerImage"></div>
-                    <div class="playerUnder">6. <span>O'Mahony</span></div>
+                    <div class="playerUnder">6. <span>Flanker</span></div>
                 </div>
                 <div class="playerBox empty threeEmpty"></div>
                 <div class="playerBox full threeFull">
                     <div id="player8" class="playerImage"></div>
-                    <div class="playerUnder">8. <span>Stander</span></div>
+                    <div class="playerUnder">8. <span>No. 8</span></div>
                 </div>
                 <div class="playerBox empty threeEmpty"></div>
                 <div class="playerBox full threeFull">
                     <div id="player7" class="playerImage"></div>
-                    <div class="playerUnder">7. <span>Cleote</span></div>
+                    <div class="playerUnder">7. <span>Flanker</span></div>
                 </div>
             </div>
             <div class="playerRow">
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player9" class="playerImage"></div>
-                    <div class="playerUnder">9. <span>Murray</span></div>
+                    <div class="playerUnder">9. <span>Scrum Half</span></div>
                 </div>
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player10" class="playerImage"></div>
-                    <div class="playerUnder">10. <span>Carbery</span></div>
+                    <div class="playerUnder">10. <span>Fly Half</span></div>
                 </div>
                 <div class="playerBox empty"></div>
             </div>
@@ -124,29 +124,29 @@
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player12" class="playerImage"></div>
-                    <div class="playerUnder">12. <span>Goggin</span></div>
+                    <div class="playerUnder">12. <span>Centre</span></div>
                 </div>
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player13" class="playerImage"></div>
-                    <div class="playerUnder">13. <span>Scannell</span></div>
+                    <div class="playerUnder">13. <span>Centre</span></div>
                 </div>
                 <div class="playerBox empty"></div>
             </div>
             <div class="playerRow">
                 <div class="playerBox full">
                     <div id="player11" class="playerImage"></div>
-                    <div class="playerUnder">11. <span>Earls</span></div>
+                    <div class="playerUnder">11. <span>Winger</span></div>
                 </div>
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player15" class="playerImage"></div>
-                    <div class="playerUnder">15. <span>Conway</span></div>
+                    <div class="playerUnder">15. <span>Full Back</span></div>
                 </div>
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
                     <div id="player14" class="playerImage"></div>
-                    <div class="playerUnder">14. <span>Wooten</span></div>
+                    <div class="playerUnder">14. <span>Winger</span></div>
                 </div>
             </div>
         </div>
