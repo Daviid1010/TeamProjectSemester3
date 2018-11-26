@@ -15,14 +15,11 @@
  * Create function that plays two teams together
  * Allows team to play others on the league
  * Once a team has played all other teams, mark done as true
- * Once all teams are marked done as true, 1st place team gets 100 points, 2nd place team gets 500, 3rd 250 to be added to user account
+ * Once all teams are marked done as true, 1st place team gets 1000 points, 2nd place team gets 500, 3rd 250 to be added to user account
  *
  * SQL Methods to be used for this: SELECT, UPDATE, INSERT
  *
  * Create a League with user defined as admin
- *
- *
- *
  *
  * Team Management:
  * Add player to team (from roster)

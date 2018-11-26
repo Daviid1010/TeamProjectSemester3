@@ -6,6 +6,7 @@
  * Time: 09:46
  */
 
+//Creates a connection to your local database
 $host="localhost";
 $port=3306;
 $socket="";
@@ -17,7 +18,6 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 or die ('Could not connect to the database server' . mysqli_connect_error());
 
 $db = mysqli_connect('localhost', 'root', 'password', 'fantasy_rugby');
-
 
 //With these parameters, this code creates a team with the Name Carrick, and  user with name David and a password 'password'
 $username = "David";
@@ -46,10 +46,5 @@ echo $teamID;
 $query = "INSERT INTO users (username, pword, score, TeamID)
   			  VALUES('$username', '$password',100, $teamID)";
 mysqli_query($db, $query);
-
 //!!!! if you try to query this to check thats when you get the 502 error, but I checked the data through mysql workbench its all inserted perfectly !!!!!
-
-
-
-
 ?>
