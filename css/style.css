@@ -267,5 +267,46 @@ img {
 }
 
 
+/*Brians shit CSS */
+.jumbotron
+{
 
+    background-attachment:fixed;
+    min-height:50px;
+    margin-bottom:0px;
+}
+
+.alt1
+{
+    background-image:url('../');
+    min-height:400px;
+}
+
+.alt2
+{
+    background:#333;
+    color:#ffffff;
+    border-color: #000000;
+}
+
+.padding
+{
+    padding-top:20px;
+    padding-bottom:20px;
+}
+#home
+{
+    background-color: #016946;
+    color: #ffffff;
+}
+input[type=submit]{
+    width: 20em; height: 10em;
+}
+.col-md-4{
+    padding:10px;
+    border:2px solid white;
+}
+.container{
+    color:#000000;
+}
 
