@@ -9,6 +9,9 @@ $user="root";
 $password="password";
 $dbname="fantasy_rugby";
 
+// id7517345_fantasy_rugby thats the db name on phpmyadmin
+// id7517345_daviid1010@2a02:4780:bad:c0de::13 thats the user on phpmyadmin
+
 $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 or die ('Could not connect to the database server' . mysqli_connect_error());
 

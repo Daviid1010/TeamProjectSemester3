@@ -7,6 +7,20 @@
  */
 
 /*
+ *
+// id7517345_fantasy_rugby thats the db name on phpmyadmin
+// id7517345_daviid1010@2a02:4780:bad:c0de::13 thats the user on phpmyadmin
+
+
+000webhost:
+email: x16440304@student.ncirl.ie
+password: sTANNIS123 (i know it looks weird)
+
+phpmyadmin:
+username: Daviid1010
+password: Stannis123
+ *
+ *
  *  TODO Create Functions as follows:
  *
  * Make final changes to Database on players, league_tables, team_rosters, leagues
@@ -54,4 +68,7 @@
  * AJAX to display player info on hover of card
  *
  * Provide backend to all pages
+ *
+ *
+ *
  */
