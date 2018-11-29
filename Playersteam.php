@@ -13,12 +13,12 @@ function displayUserTeam() {
 }
 $teamID = 1;
 
-$query = "SELECT playerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamID";
+$query = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=1 AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
 
 
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
-    $stmt->bind_result($playerName, $PlayerPosition, $Province, $Rating);
+    $stmt->bind_result($TeamPosition, $PlayerName, $PlayerPosition, $Province, $Rating);
 
     echo "<table class=\"table table-hover\">
                 <thead>
@@ -34,8 +34,8 @@ if ($stmt = $con->prepare($query)) {
 
     while ($stmt->fetch()) {
         echo "<tr>
-                    <td>$playerName</td>
-                    <td>$PlayerPosition</td>
+                    <th>$TeamPosition</th>
+                    <td>$PlayerName</td>
                     <td>$Province</td>
                     <td>$Rating</td>
                 </tr>";
