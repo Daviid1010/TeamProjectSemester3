@@ -1,3 +1,4 @@
+<?php include 'connection.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,7 +153,8 @@
         </div>
 
         <div class="col-lg-5 col-md-12 players third" id="backs">
-            <h1>Forwards</h1>
+            <?php include 'Playersteam.php'?>
+            <!--<h1>Forwards</h1>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -304,7 +306,7 @@
                     <td>9.5</td>
                 </tr>
                 </tbody>
-            </table>
+            </table> -->
         </div>
     </div>
     <script src="js/bootstrap.js"></script>

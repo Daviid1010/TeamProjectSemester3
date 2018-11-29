@@ -7,6 +7,10 @@
  * Time: 10:33
  */
 
+
+function displayUserTeam() {
+
+}
 $teamID = 1;
 
 $query = "SELECT playerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamID";
