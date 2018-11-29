@@ -1,0 +1,15 @@
+.jumbotron
+{
+
+    min-height:500px;
+    margin-bottom:0px;
+}
+.container{
+    width: 350px;
+
+}
+.form-group{
+    margin: auto;
+    padding-top: auto;
+    padding-bottom: auto;
+}
