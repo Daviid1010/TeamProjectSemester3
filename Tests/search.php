@@ -18,6 +18,10 @@ echo "<input type='submit' value='Submit' name='submit'>";
 echo "</form>";
 
 
+function search ($conn, $playerName, $province, $position) {
+
+}
+
 if(isset($_POST['submit'])){
     $playerName =  $_POST['name'];
     $province = $_POST['province'];
@@ -64,6 +68,7 @@ if(isset($_POST['submit'])){
                     <th scope=\"col\">Position</th>
                     <th scope=\"col\">Province</th>
                     <th scope=\"col\">Rating</th>
+                    <th scope='col'>Buy</th>
 
                 </tr>
                 </thead>
@@ -75,6 +80,7 @@ if(isset($_POST['submit'])){
                     <td>$PlayerPosition</td>
                     <td>$Province</td>
                     <td>$Rating</td>
+                    <td><button>BUY NOW!!!!!!</button></td>
                 </tr>";
         }
         echo "</tbody></table>";
