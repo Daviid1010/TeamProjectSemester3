@@ -299,14 +299,23 @@ img {
     background-color: #016946;
     color: #ffffff;
 }
+/*
 input[type=submit]{
     width: 20em; height: 10em;
-}
+} */
 .col-md-4{
     padding:10px;
     border:2px solid white;
 }
 .container{
     color:#000000;
+}
+
+#submitBtn {
+    height: 50px;
+    width: 100px;
+}
+form {
+    text-align: center;
 }
 

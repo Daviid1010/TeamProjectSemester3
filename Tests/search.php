@@ -1,4 +1,45 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fantasy Rugby</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<div class="navbar-static-top navbar-inverse" id="home">
+    <div class="container">
+        <div class="navbar-brand">
+            Market
+        </div>
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+            Menu
+        </button>
+        <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Market</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Player Market</h1>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <form method='post' action='search.php'>
+        <label>Search by Name:  </label><input type='text' name='name' />
+        <label> or Province:  </label><input type='text' name='province'/>
+        <label> or Position:  </label><input type='text' name='position' />
+        <input id="submitBtn" type='submit' value='Submit' name='submit'>
+    </form>
+
+    <?php
 /**
  * Created by PhpStorm.
  * User: Davy Sheehy
@@ -9,23 +50,12 @@
  */
 
 include '../connection.php';
-
-echo "<form method='post' action='search.php'>";
-echo "<label>Search by Name: </label><input type='text' name='name' />";
-echo "<label> or Province: </label><input type='text' name='province'/>";
-echo "<label> or Position: </label><input type='text' name='position' />";
-echo "<input type='submit' value='Submit' name='submit'>";
-echo "</form>";
-
-
-function search ($conn, $playerName, $province, $position) {
-
-}
-
 if(isset($_POST['submit'])){
     $playerName =  $_POST['name'];
     $province = $_POST['province'];
     $position = $_POST['position'];
+
+
 
     $search = "SELECT PlayerName, PlayerPosition, Province, Rating FROM players";
 
@@ -36,21 +66,21 @@ if(isset($_POST['submit'])){
 
         //if player name is not empty and if the twn other are empty
         if( $playerName!=null && $province==null && $position==null ){
-            $search .= "PlayerName='$playerName'";
+            $search .= "PlayerName=\"$playerName\"";
         } else if ($playerName!=null) {
-            $search .= "PlayerName='$playerName' AND ";
+            $search .= "PlayerName=\"$playerName\" AND ";
         }
 
         //now checking if province is empty and also position
         if( $province!=null && $position==null) {
-            $search .= "Province='$position'";
+            $search .= "Province=\"$province\"";
         } else if ($province!=null) {
-            $search .= "Province='$province' AND ";
+            $search .= "Province=\"$province\" AND ";
         }
 
         //finally check to see if postion is full
         if ($position!=null) {
-            $search .= "PlayerPosition='$position'";
+            $search .= "PlayerPosition=\"$position\"";
         }
 
     }
@@ -80,7 +110,7 @@ if(isset($_POST['submit'])){
                     <td>$PlayerPosition</td>
                     <td>$Province</td>
                     <td>$Rating</td>
-                    <td><button>BUY NOW!!!!!!</button></td>
+                    <td><button type=\"button\" class=\"btn btn-success\">Buy Now</button></td>
                 </tr>";
         }
         echo "</tbody></table>";
@@ -89,5 +119,6 @@ if(isset($_POST['submit'])){
     else {
         echo "<p>No results found.</p>";
     }
-}
-
+} ?>
+</div>
+</body>
