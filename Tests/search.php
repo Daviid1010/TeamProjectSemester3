@@ -12,12 +12,7 @@ include '../connection.php';
 
 echo "<form method='post' action='search.php'>";
 echo "<label>Search by Name: </label><input type='text' name='name' />";
-echo "<label> or Province: </label><select name='province'>
-<option value='Munster'>Munster</option>
-<option value='Leinster'>Leinster</option>
-<option value='Ulster'>Ulster</option>
-<option value='Connacht'>Connacht</option>
-</select>";
+echo "<label> or Province: </label><input type='text' name='province'/>";
 echo "<label> or Position: </label><input type='text' name='position' />";
 echo "<input type='submit' value='Submit' name='submit'>";
 echo "</form>";
@@ -28,24 +23,36 @@ if(isset($_POST['submit'])){
     $province = $_POST['province'];
     $position = $_POST['position'];
 
-    $search = "SELECT PlayerName, PlayerPosition, Province, Rating FROM players WHERE  PlayerName='$playerName' AND Province='$province' AND PlayerPosition='$position'";
-/*
-    if($playerName!=null) {
-        $search = "SELECT PlayerName, PlayerPosition, Province, Rating FROM players WHERE PlayerName='$playerName'";
-        if ($province!=null) {
-            $search = "SELECT PlayerName, PlayerPosition, Province, Rating FROM players WHERE PlayerName='$playerName' AND Province='$province'";
-            if($position!=null) {
-                $search = $search = "SELECT PlayerName, PlayerPosition, Province, Rating FROM players WHERE PlayerName='$playerName' AND Province='$province' AND PlayerPosition='$position'";
-            }
+    $search = "SELECT PlayerName, PlayerPosition, Province, Rating FROM players";
+
+
+    //checks if any of the feilds have been filled
+    if($playerName!=null || $position!=null || $province!=null) {
+        $search .= " WHERE ";
+
+        //if player name is not empty and if the twn other are empty
+        if( $playerName!=null && $province==null && $position==null ){
+            $search .= "PlayerName='$playerName'";
+        } else if ($playerName!=null) {
+            $search .= "PlayerName='$playerName' AND ";
         }
+
+        //now checking if province is empty and also position
+        if( $province!=null && $position==null) {
+            $search .= "Province='$position'";
+        } else if ($province!=null) {
+            $search .= "Province='$province' AND ";
+        }
+
+        //finally check to see if postion is full
+        if ($position!=null) {
+            $search .= "PlayerPosition='$position'";
+        }
+
     }
-    else if($province!=null) {
-        $search = "SELECT PlayerName, PlayerPosition, Province, Rating FROM players WHERE Province='$province'";
-    }
-    else if($position!=null) {
-        $search ="SELECT PlayerName, PlayerPosition, Province, Rating FROM players WHERE PlayerPosition='$position'";
-    }
-*/
+
+    $search .= " ORDER BY  Rating DESC";
+
 
     if ($stmt = $con->prepare($search)) {
         $stmt->execute();
@@ -72,6 +79,9 @@ if(isset($_POST['submit'])){
         }
         echo "</tbody></table>";
         $stmt->close();
+    }
+    else {
+        echo "<p>No results found.</p>";
     }
 }
 
