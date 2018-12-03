@@ -70,5 +70,51 @@ password: Stannis123
  * Provide backend to all pages
  *
  *
- *
- */
+ *TODO Brian
+ * creates a new team with the name entered by the user
+INSERT INTO teams(TeamName)
+VALUES
+("team name entered in register form");
+
+uses that team name to query its generated teamID, which will be used later
+
+SELECT TeamID FROM teams WHERE TeamName="team name registered";
+
+store the id number from this in a php variable
+inserts a new user with the username, password typed in, as well as 5000 points and the team created using its teamID
+
+INSERT INTO users (username, pword, score, TeamID)
+VALUES
+("username variable","password variable",5000,"teamID stored in variable");
+
+
+
+- the 5000 in the insert user statement sets a users score to 5000 upon registration
+
+- make sure the teamID is an int dont put it in as a string, the string above is only a placeholder
+
+-in the query below this creates a preselected team for a new registered user just to start with, a full 15 plus 3 subs
+
+
+inserts players into that users team
+INSERT INTO team_rosters (TeamID,PlayerID, games, OnTeam, TeamPosition)
+VALUES
+("teamID",9,0,1,1), /*James Cronin
+("teamID",142,0,1,3), /*Conor Carey
+("teamID",27,0,1,2), /* Kevin O'Byrne
+("teamID",88,0,1,4), /*Keiran Treadwell
+("teamID",21,0,1,5),/* Jean Kleyn
+("teamID",166,0,1,6), /*Paul Boyle
+("teamID",102,0,1,7), /*Max Deegan
+("teamID",7,0,1,8), /* Chris Cleote
+("teamID",136,0,1,9), /*Caolin Blade
+("teamID",96,0,1,10), /*Ross Byrne
+("teamID",46,0,1,11),/* Alex Wooten
+("teamID",16,0,1,12), /*JJ Hanrahan
+("teamID",65,0,1,13), /* Rob Lyttle
+("teamID",58,0,1,14), /*Craig Gilroy
+("teamID",15,0,1,15), /*Mike Haley
+("teamID",83,0,0,0), /*Henry Speight
+("teamID",3,0,0,0),/* Tadg Beirne
+("teamID",154,0,0,0); /*Finlay Bealham
+ */ ?>
