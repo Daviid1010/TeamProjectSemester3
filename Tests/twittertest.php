@@ -24,6 +24,6 @@ $new_status = $connection->post("statuses/update", ["status" => "Up Munster!"]);
 //Get Tweets
 $statuses = $connection->get("statuses/home_timeline",["count" => 1, "exclude_replies" => true]);
 
-print_r($statuses);
-
 ?>
+
+<a class="twitter-timeline" href="https://twitter.com/Munsterrugby?ref_src=twsrc%5Etfw">Tweets by Munsterrugby</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
