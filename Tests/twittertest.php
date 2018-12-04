@@ -26,4 +26,15 @@ $statuses = $connection->get("statuses/home_timeline",["count" => 1, "exclude_re
 
 ?>
 
-<a class="twitter-timeline" href="https://twitter.com/Munsterrugby?ref_src=twsrc%5Etfw">Tweets by Munsterrugby</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<h2>Munster Tweets</h2>
+<a class="twitter-timeline" href="https://twitter.com/Munsterrugby?ref_src=twsrc%5Etfw" data-height="300" data-width="300"></a>
+<br>
+<h2>Leinster Tweets</h2>
+<a class="twitter-timeline" href="https://twitter.com/leinsterrugby?ref_src=twsrc%5Etfw" data-height="300" data-width="300"></a>
+<br>
+<h2>Ulster Tweets</h2>
+<a class="twitter-timeline" href="https://twitter.com/UlsterRugby?ref_src=twsrc%5Etfw" data-height="300" data-width="300"></a>
+<br>
+<h2>Connacht Rugby</h2>
+<a class="twitter-timeline" href="https://twitter.com/connachtrugby?ref_src=twsrc%5Etfw" data-height="300" data-width="300"></a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
