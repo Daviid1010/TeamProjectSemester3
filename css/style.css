@@ -90,7 +90,9 @@ img {
 }
 
 #backs {
-    background-color: white;
+    background-color: #1c7430;
+    color: white;
+    border: 4px solid orange;
 }
 
 #accountinfo {

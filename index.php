@@ -152,7 +152,9 @@
             </div>
         </div>
 
-        <div class="col-lg-5 col-md-12 players third" id="backs"><?php include 'Playersteam.php'?></div>
+        <div class="col-lg-5 col-md-12 players third" id="backs">
+            <?php include 'Tests/twittertest.php'?>
+        </div>
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
 </body>

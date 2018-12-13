@@ -11,7 +11,7 @@ $consumersecret = "AxGPxUqd7NotcnKqWxq0njUrgfQ7SHI5clsTHkwpYp90zCwk7m";
 $accesstoken = "714884229298012161-Sfjiz78WlelGDogLngHuTHHxCspSEdB";
 $accesssecret = "uHVDgznCRmM6ynxwgfWxVwn3xVWiMJv0L8AnsXG6ziX08";
 
-require "../twitteroauth-0.9.2/autoload.php";
+require "twitteroauth-0.9.2/autoload.php";
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 //Connect API
@@ -26,15 +26,33 @@ $statuses = $connection->get("statuses/home_timeline",["count" => 1, "exclude_re
 
 ?>
 
-<h2>Munster Tweets</h2>
-<a class="twitter-timeline" href="https://twitter.com/Munsterrugby?ref_src=twsrc%5Etfw" data-height="300" data-width="300"></a>
+<div style="width: 100%;">
+    <div  style="float: left; width: 50%; padding-right: 5px; ">
+        <h2>Munster Tweets</h2>
+        <a class="twitter-timeline" href="https://twitter.com/Munsterrugby?ref_src=twsrc%5Etfw" data-height="500"></a>
+    </div>
+    <div style="float: left; width: 50%;">
+        <h2>Leinster Tweets</h2>
+        <a class="twitter-timeline" href="https://twitter.com/leinsterrugby?ref_src=twsrc%5Etfw" data-height="500"></a>
+    </div>
+</div>
 <br>
-<h2>Leinster Tweets</h2>
-<a class="twitter-timeline" href="https://twitter.com/leinsterrugby?ref_src=twsrc%5Etfw" data-height="300" data-width="300"></a>
-<br>
+<div style="width: 100%; float: left;">
+    <div  style="float: left; width: 50%; padding-right: 5px;">
+        <h2>Ulster Tweets</h2>
+        <a class="twitter-timeline" href="https://twitter.com/UlsterRugby?ref_src=twsrc%5Etfw" data-height="500"></a>
+    </div>
+    <div style="float: left; width: 50%;">
+        <h2>Connacht Rugby</h2>
+        <a class="twitter-timeline" href="https://twitter.com/connachtrugby?ref_src=twsrc%5Etfw" data-height="500"></a>
+    </div>
+</div>
+
+<!--
 <h2>Ulster Tweets</h2>
-<a class="twitter-timeline" href="https://twitter.com/UlsterRugby?ref_src=twsrc%5Etfw" data-height="300" data-width="300"></a>
+<a class="twitter-timeline" href="https://twitter.com/UlsterRugby?ref_src=twsrc%5Etfw" data-height="300"></a>
 <br>
 <h2>Connacht Rugby</h2>
-<a class="twitter-timeline" href="https://twitter.com/connachtrugby?ref_src=twsrc%5Etfw" data-height="300" data-width="300"></a>
+<a class="twitter-timeline" href="https://twitter.com/connachtrugby?ref_src=twsrc%5Etfw" data-height="300"></a>
+-->
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
