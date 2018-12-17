@@ -9,7 +9,7 @@
 
 
 
-//when all the authentification checks
+//when all the authentication checks
 $query = "INSERT INTO teams(TeamName) VALUES ($teamname)";
 
 
@@ -69,7 +69,7 @@ VALUES
 
 
 
-$userInsert = "INSERT INTO users(username,pword,score,TeamID) VALUES ($username, $pword, 100, $teamID)";
+$userInsert = "INSERT INTO users(username,userPassword,score,TeamID) VALUES ($username, $pword, 100, $teamID)";
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
@@ -88,5 +88,4 @@ if(mysqli_query($link, $userInsert)){
 mysqli_close($link);
 
 
-$_SESSION['user'] =
 ?>
