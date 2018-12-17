@@ -99,22 +99,22 @@ VALUES
 inserts players into that users team
 INSERT INTO team_rosters (TeamID,PlayerID, games, OnTeam, TeamPosition)
 VALUES
-("teamID",9,0,1,1), /*James Cronin
-("teamID",142,0,1,3), /*Conor Carey
-("teamID",27,0,1,2), /* Kevin O'Byrne
-("teamID",88,0,1,4), /*Keiran Treadwell
-("teamID",21,0,1,5),/* Jean Kleyn
-("teamID",166,0,1,6), /*Paul Boyle
-("teamID",102,0,1,7), /*Max Deegan
-("teamID",7,0,1,8), /* Chris Cleote
-("teamID",136,0,1,9), /*Caolin Blade
-("teamID",96,0,1,10), /*Ross Byrne
-("teamID",46,0,1,11),/* Alex Wooten
-("teamID",16,0,1,12), /*JJ Hanrahan
-("teamID",65,0,1,13), /* Rob Lyttle
-("teamID",58,0,1,14), /*Craig Gilroy
-("teamID",15,0,1,15), /*Mike Haley
-("teamID",83,0,0,0), /*Henry Speight
-("teamID",3,0,0,0),/* Tadg Beirne
-("teamID",154,0,0,0); /*Finlay Bealham
+("teamID",9,0,1,1),
+("teamID",142,0,1,3),
+("teamID",27,0,1,2),
+("teamID",88,0,1,4),
+("teamID",21,0,1,5),
+("teamID",166,0,1,6),
+("teamID",102,0,1,7),
+("teamID",7,0,1,8),
+("teamID",136,0,1,9),
+("teamID",96,0,1,10),
+("teamID",46,0,1,11),
+("teamID",16,0,1,12),
+("teamID",65,0,1,13),
+("teamID",58,0,1,14),
+("teamID",15,0,1,15),
+("teamID",83,0,0,0),
+("teamID",3,0,0,0),
+("teamID",154,0,0,0);
  */ ?>
