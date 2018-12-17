@@ -52,7 +52,7 @@ if ($stmt1 = $con->prepare($query1)) {
 
 $avg1 = $sum1 / $count1;
 
-//echo "Average Rating: " . $avg1;
+echo "Average Rating: " . $avg1;
 
 
 
@@ -83,7 +83,6 @@ if ($stmt2 = $con->prepare($query2)) {
                 <tbody>";
 
     while ($stmt2->fetch()) {
-        //printf("%s, %s, %s, %s, %s\n", $TeamPosition, $PlayerName, $PlayerPosition, $Province, $Rating);
         echo "<tr>
                     <th>$TeamPosition</th>
                     <td>$PlayerName</td>
@@ -102,7 +101,7 @@ if ($stmt2 = $con->prepare($query2)) {
 echo "</div>";
 $avg2 = $sum2 / $count2;
 
-//echo "Average Rating: " . $avg2;
+echo "Average Rating: " . $avg2;
 ?>
 
 <button onclick="playNow()" style="float: left; height: 100px; width: 200px;" >play now</button>
