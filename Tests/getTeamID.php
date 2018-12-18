@@ -19,5 +19,5 @@ if ($stmt = $con->prepare($query)) {
     }
     $stmt->close();
 }
-
+echo $teamID;
     ?>

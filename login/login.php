@@ -1,12 +1,9 @@
 <?php
 // Initialize the session
+include "../connection.php";
 session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
-    exit;
-}
 
 // Include config file
 require_once "config.php";
@@ -58,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Password is correct, so start a new session
                             session_start();
 
-                            $query = "SELECT TeamID FROM users WHERE Username=$username";
+                            $query = "SELECT TeamID FROM users WHERE Username='$username'";
 
 
                             if ($stmt = $con->prepare($query)) {
@@ -71,7 +68,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             }
 
                             // Store data in session variables
-                            $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
                             $_SESSION["teamID"] = $teamID;

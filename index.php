@@ -1,5 +1,6 @@
 <?php include 'connection.php' ;
 session_start();
+$teamID = $_SESSION["teamID"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +47,8 @@ session_start();
                 <img src="images/davy.jpg" class="img-fluid rounded-circle">
                 <h2><?php echo $_SESSION['username']?></h2>
                 <br>
-                <h2>Wins</h2>
-                <h3>20</h3>
+                <h2>TeamID</h2>
+                <h3><?php echo $teamID;?></h3>
                 <br>
                 <h2>Losses</h2>
                 <h3>4</h3>
