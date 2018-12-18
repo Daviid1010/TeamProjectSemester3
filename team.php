@@ -156,5 +156,6 @@ include 'Tests/imagestest.php';
 
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>

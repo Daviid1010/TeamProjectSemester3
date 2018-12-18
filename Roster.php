@@ -16,7 +16,7 @@ if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($TeamPosition, $PlayerName, $PlayerPosition, $Province, $Rating);
 
-    echo "<table class=\"table table-hover\" style='font-size:1em;'>
+    echo "<table class=\"table table-hover\" style='font-size:1em;' id='rosterTable'>
                 <thead>
                 <tr>
                     <th scope=\"col\">Name</th>
@@ -42,3 +42,19 @@ if ($stmt = $con->prepare($query)) {
     $stmt->close();
 }
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $("#rosterTable tr").click(function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        var value=$(this).find('td:first').html();
+        //alert(value);
+        var playerPos =  prompt($("#rosterTable tr.selected td:first").html() + " into which position on team?");
+
+
+        var playerNumQ =  "SELECT PlayerID FROM players WHERE PlayerName=\""+$("#rosterTable tr.selected td:first").html()+"\"";
+        //alert(playerNumQ);
+
+        <?php ?>
+
+    });
+</script>

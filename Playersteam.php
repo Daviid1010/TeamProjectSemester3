@@ -25,7 +25,7 @@ if ($stmt = $con->prepare($query)) {
 
                 </tr>
                 </thead>
-                <tbody>";
+                <tbody id='currentTeam'>";
 
     while ($stmt->fetch()) {
         echo "<tr>

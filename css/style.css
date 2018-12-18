@@ -336,3 +336,8 @@ form {
     background-color: #1c7430;
 }
 
+.selected {
+    background-color: orangered;
+    color: #FFF;
+}
+
