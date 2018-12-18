@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, Username, UserPassword FROM users WHERE username = ?";
+        $sql = "SELECT UserID, Username, UserPassword FROM users WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -58,13 +58,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Password is correct, so start a new session
                             session_start();
 
+                            $query = "SELECT TeamID FROM users WHERE Username=$username";
+
+
+                            if ($stmt = $con->prepare($query)) {
+                                $stmt->execute();
+                                $stmt->bind_result($TeamID);
+                                while ($stmt->fetch()) {
+                                    $teamID =  "$TeamID";
+                                }
+                                $stmt->close();
+                            }
+
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
+                            $_SESSION["teamID"] = $teamID;
 
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: ../index.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
