@@ -49,26 +49,12 @@ include 'Tests/imagestest.php';
 <br>
 
     <div class="row">
-        <div class="col-lg-2 col-md-12  third" id="account">
-            <div id="accountinfo"  align="center">
-                <img src="images/davy.jpg" class="img-fluid rounded-circle">
-                <h2><?php echo $_SESSION['username']?></h2>
-                <br>
-                <h2>Wins</h2>
-                <h3>20</h3>
-                <br>
-                <h2>Losses</h2>
-                <h3>4</h3>
-                <br>
-                <h2>Points</h2>
-                <h3>615</h3>
-
-                <div id="play">
-                    Play Now
-                </div>
+        <div class="col-lg-3 col-md-12  third" id="account"  >
+            <h2>Squad</h2>
+            <?php include "Roster.php"?>
             </div>
 
-        </div>
+
         <div class="col-lg-5 col-md-12 players third" id="forwards">
 
             <div class="playerRow">
@@ -162,10 +148,12 @@ include 'Tests/imagestest.php';
             </div>
         </div>
 
-        <div class="col-lg-5 col-md-12 players third" id="backs">
+        <div class="col-lg-4 col-md-12 players third" id="backs">
             <h1>Current Team</h1>
             <?php include 'Playersteam.php'?>
         </div>
+    </div>
+
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
 </body>

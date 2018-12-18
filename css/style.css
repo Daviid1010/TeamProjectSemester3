@@ -79,6 +79,15 @@ img {
     font-size: 1.2em;
 }
 
+#League table {
+    background-color: green;
+    color: white;
+}
+
+#League {
+    overflow-y: scroll;
+}
+
 #forwards {
     padding: 10px;
     background-image: url("../images/pitchtest.jpg");
@@ -89,10 +98,7 @@ img {
     float: left;
 }
 
-#backs {
-    background-color: #1c7430;
-    color: white;
-}
+
 
 #accountinfo {
     padding: 10px;
@@ -318,5 +324,15 @@ input[type=submit]{
 }
 form {
     text-align: center;
+}
+
+#account table {
+    color: white;
+    background-color: #1c7430;
+}
+
+#backs table {
+    color: white;
+    background-color: #1c7430;
 }
 

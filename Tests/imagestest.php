@@ -7,7 +7,7 @@
  */
 
 //include '../connection.php';
-$teamID = 1;
+$teamID = $_SESSION["teamID"];
 $filepathArr = array();
 
 $query = "SELECT ImageFilePath FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamID AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";

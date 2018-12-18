@@ -1,14 +1,15 @@
-<?php include 'connection.php'; ?>
 <?php
 /**
  * Created by PhpStorm.
  * User: Davy Sheehy
- * Date: 29/11/2018
- * Time: 10:33
+ * Date: 18/12/2018
+ * Time: 17:18
  */
-$teamID = $_SESSION["teamID"];
+include "connection.php";
 
-$query = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamID AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
+$teamID = 1;//$_SESSION["teamID"];
+
+$query = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamID AND OnTeam=0 ORDER BY team_rosters.TeamPosition ASC";
 
 
 if ($stmt = $con->prepare($query)) {
@@ -22,6 +23,7 @@ if ($stmt = $con->prepare($query)) {
                     <th scope=\"col\">Position</th>
                     <th scope=\"col\">Province</th>
                     <th scope=\"col\">Rating</th>
+                    <th scope='col'>Change</th>
 
                 </tr>
                 </thead>
@@ -29,16 +31,14 @@ if ($stmt = $con->prepare($query)) {
 
     while ($stmt->fetch()) {
         echo "<tr>
-                    <th>$TeamPosition</th>
                     <td>$PlayerName</td>
+                    <td>$PlayerPosition</td>
                     <td>$Province</td>
                     <td>$Rating</td>
+                    <td><button onclick='#' style='color: white; background-color: #1e7e34'>Put on Team</button></td>
                 </tr>";
     }
     echo "</tbody></table>";
     $stmt->close();
 }
-
-
-
 ?>

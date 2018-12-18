@@ -62,9 +62,8 @@ $teamID = $_SESSION["teamID"];
             </div>
 
         </div>
-        <div class="col-lg-5 col-md-12 players third" id="forwards">
-
-
+        <div class="col-lg-5 col-md-12 players third" id="League">
+            <?php include "Tests/League.php"?>
         </div>
 
         <div class="col-lg-5 col-md-12 players third" id="backs">
