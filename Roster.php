@@ -54,7 +54,15 @@ if ($stmt = $con->prepare($query)) {
         var playerNumQ =  "SELECT PlayerID FROM players WHERE PlayerName=\""+$("#rosterTable tr.selected td:first").html()+"\"";
         //alert(playerNumQ);
 
-        <?php ?>
+        $.ajax ({
+            type: "POST",
+            url:"UpdateTeamRoster.php",
+            data: "playerNumQ=value",
+            success: function() {
+                console.log("message sent!");
+            }
+        });
+
 
     });
 </script>
