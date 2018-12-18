@@ -110,6 +110,10 @@ VALUES
 
             mysqli_query($conn,$teamRosterQuery);
 
+            $leagueSQL = "INSERT INTO league_tables (TeamID,LeagueID, points, games, wins, losses) VALUES ($teamID,1,0,0,0,0)";
+
+            mysqli_query($conn, $leagueSQL);
+
 
 
 
@@ -126,7 +130,10 @@ VALUES
             // Attempt to execute the prepared statement
             if(mysqli_query($conn,$sql)){
                 // Redirect to login page
-                header("location: login.php");
+                session_start();
+                $_SESSION['username'] =  $param_username;
+                $_SESSION['teamID'] = $teamID;
+                header("location: ../index.php");
             } else{
                 echo "Something went wrong. Please try again later." . $sql . " " . mysqli_error($conn);
             }

@@ -92,7 +92,6 @@ img {
 #backs {
     background-color: #1c7430;
     color: white;
-    border: 4px solid orange;
 }
 
 #accountinfo {
@@ -265,7 +264,7 @@ img {
     background-image: url("../images/Ulster/jStockdale.png");
 }
 #player15 {
-    background-image: url("../images/Leinster/RossBryne.png");
+    background-image: url("../images/Leinster/RossByrne.png");
 }
 
 

@@ -1,4 +1,4 @@
-<?php include 'connection.php'?>
+<?php include 'connection.php'; ?>
 <?php
 /**
  * Created by PhpStorm.
@@ -6,21 +6,16 @@
  * Date: 29/11/2018
  * Time: 10:33
  */
+$teamID = 5;//$_SESSION['teamID'];
 
-
-function displayUserTeam() {
-
-}
-$teamID = 1;
-
-$query = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=1 AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
+$query = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamID AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
 
 
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($TeamPosition, $PlayerName, $PlayerPosition, $Province, $Rating);
 
-    echo "<table class=\"table table-hover\">
+    echo "<table class=\"table table-hover\" style='font-size:1.4em;'>
                 <thead>
                 <tr>
                     <th scope=\"col\">Name</th>
