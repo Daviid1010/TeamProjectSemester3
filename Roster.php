@@ -77,10 +77,7 @@ if ($stmt = $con->prepare($CheckRosterQuery)) {
     }
 }
 
-    $conn = new mysqli('localhost','root','password','fantasy_rugby');
-    if($conn->connect_error) {
-        die("Connection failed" . $conn->connect_error);
-    }
+    include 'connection.php';
     //remove old player
     $removeOldPLayer = "UPDATE team_rosters SET TeamPosition = 0, OnTeam=0   WHERE TeamPosition=$playerNumNew";
     //echo "$removeOldPLayer<br>";

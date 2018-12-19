@@ -73,17 +73,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Bind variables to the prepared statement as parameters
             //mysqli_stmt_bind_param($stmt, "ssis", $param_username, $param_password,$score, $param_teamID);
 
-            $conn = new mysqli('localhost','root','password','fantasy_rugby');
+            include 'connection.php';
 
-            if($conn->connect_error) {
-                die("Connection failed" . $conn->connect_error);
-            }
 
             $sqlTeam = "INSERT INTO teams (teamName) VALUES ('".$teamName."')";
-            mysqli_query($conn, $sqlTeam);
+            mysqli_query($con, $sqlTeam);
 
             $searchTeam = "SELECT TeamID FROM teams WHERE teamName='$teamName'";
-            $teamQ = mysqli_query($conn,$searchTeam);
+            $teamQ = mysqli_query($con,$searchTeam);
             $teamID= mysqli_fetch_assoc($teamQ)["TeamID"];
             echo "Team ID ". $teamID;
 
@@ -108,11 +105,11 @@ VALUES
 ($teamID,3,0,0,0),
 ($teamID,154,0,0,0)";
 
-            mysqli_query($conn,$teamRosterQuery);
+            mysqli_query($con,$teamRosterQuery);
 
             $leagueSQL = "INSERT INTO league_tables (TeamID,LeagueID, points, games, wins, losses) VALUES ($teamID,1,0,0,0,0)";
 
-            mysqli_query($conn, $leagueSQL);
+            mysqli_query($con, $leagueSQL);
 
 
 
@@ -128,7 +125,7 @@ VALUES
             echo "Username var is: ".$param_username;
 
             // Attempt to execute the prepared statement
-            if(mysqli_query($conn,$sql)){
+            if(mysqli_query($con,$sql)){
                 // Redirect to login page
                 session_start();
                 $_SESSION['username'] =  $param_username;

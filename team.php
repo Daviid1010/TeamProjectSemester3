@@ -41,6 +41,9 @@ include 'Tests/imagestest.php';
       <li class="nav-item">
         <a class="nav-link" href="market.php">Market</a>
       </li>
+        <li class="nav-item">
+            <a class="nav-link" href="GameFront.php">Play Now</a>
+        </li>
 
     </ul>
   </div>

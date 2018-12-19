@@ -46,21 +46,7 @@ $teamID = $_SESSION["teamID"];
     <div class="row">
         <div class="col-lg-2 col-md-12  third" id="account">
             <div id="accountinfo"  align="center">
-                <img src="images/davy.jpg" class="img-fluid rounded-circle">
-                <h2><?php echo $_SESSION['username']?></h2>
-                <br>
-                <h2>TeamID</h2>
-                <h3><?php echo $teamID;?></h3>
-                <br>
-                <h2>Losses</h2>
-                <h3>4</h3>
-                <br>
-                <h2>Points</h2>
-                <h3>615</h3>
-
-                <div id="play">
-                    Play Now
-                </div>
+                <h2>Welcome <?php echo $_SESSION['username']?></h2>
             </div>
 
         </div>

@@ -21,13 +21,13 @@ session_start();
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">HOME</a>
+                    <a class="nav-link" href="home.php">HOME</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="category.html">PLAY NOW <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="GameFront.php">PLAY NOW <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="product.html">TEAM</a>
+                    <a class="nav-link" href="team.php">TEAM</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Market.php">MARKET</a>
