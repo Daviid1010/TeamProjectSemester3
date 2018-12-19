@@ -82,8 +82,8 @@ if ($stmt = $con->prepare($CheckRosterQuery)) {
         die("Connection failed" . $conn->connect_error);
     }
     //remove old player
-    $removeOldPLayer = "UPDATE team_rosters SET TeamPosition= NULL AND OnTeam=0 WHERE TeamPosition=$playerNumNew";
-    echo "$removeOldPLayer";
+    $removeOldPLayer = "UPDATE team_rosters SET TeamPosition = 0, OnTeam=0   WHERE TeamPosition=$playerNumNew";
+    echo "$removeOldPLayer<br>";
     mysqli_query($conn, $removeOldPLayer);
 
     //get new players id
@@ -101,11 +101,11 @@ if ($stmt = $con->prepare($CheckRosterQuery)) {
 
         }
 
-    $addPlayerQuery = "UPDATE team_rosters SET TeamPosition=14 AND OnTeam=1 WHERE TeamID=1 AND PlayerID=$PlayerIDNew";
+    $addPlayerQuery = "UPDATE team_rosters SET TeamPosition=14, OnTeam=1 WHERE TeamID=1 AND PlayerID=$PlayerIDNew";
     echo "$addPlayerQuery";
     mysqli_query($conn, $addPlayerQuery);
 
-    //header("location: team.php");
+    header("location: team.php");
 
     }
 
