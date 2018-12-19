@@ -23,8 +23,6 @@ if ($stmt = $con->prepare($query)) {
                     <th scope=\"col\">Position</th>
                     <th scope=\"col\">Province</th>
                     <th scope=\"col\">Rating</th>
-                    <th scope='col'>Change</th>
-
                 </tr>
                 </thead>
                 <tbody>";
@@ -35,34 +33,94 @@ if ($stmt = $con->prepare($query)) {
                     <td>$PlayerPosition</td>
                     <td>$Province</td>
                     <td>$Rating</td>
-                    <td><button onclick='#' style='color: white; background-color: #1e7e34'>Put on Team</button></td>
                 </tr>";
     }
     echo "</tbody></table>";
     $stmt->close();
 }
-?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $("#rosterTable tr").click(function () {
-        $(this).addClass('selected').siblings().removeClass('selected');
-        var value=$(this).find('td:first').html();
-        //alert(value);
-        var playerPos =  prompt($("#rosterTable tr.selected td:first").html() + " into which position on team?");
 
 
-        var playerNumQ =  "SELECT PlayerID FROM players WHERE PlayerName=\""+$("#rosterTable tr.selected td:first").html()+"\"";
-        //alert(playerNumQ);
+$playerNameNew = "";
+$playerNum = 0;
+$PlayerIDNew = 0;
+$PlayerNameNew = "";
 
-        $.ajax ({
-            type: "POST",
-            url:"UpdateTeamRoster.php",
-            data: "playerNumQ=value",
-            success: function() {
-                console.log("message sent!");
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(empty(trim($_POST["PlayerNameNew"]))){
+        echo "no name in input, please enter a name!";
+    } else{
+        $playerNameNew = trim($_POST["PlayerNameNew"]);
+    }
+
+    if(empty(trim($_POST["PlayerNum"]))){
+        echo "Please enter the Number you want to put your player into the team";
+    } else{
+        $playerNumNew = $_POST["PlayerNum"];
+    }
+
+//checks if player is on the roster
+    $CheckRosterQuery = "SELECT PlayerName, team_rosters.PlayerID
+FROM team_rosters JOIN players
+ON players.PlayerID = team_rosters.PlayerID
+WHERE team_rosters.TeamID=".$teamID." AND players.PlayerName=\"$playerNameNew\"";
+
+if ($stmt = $con->prepare($CheckRosterQuery)) {
+    $stmt->execute();
+    $stmt->bind_result( $PlayerName, $PlayerID);
+
+    while($stmt->fetch()) {
+        if($PlayerName == $PlayerNameNew) {
+            $playerNameNew = $PlayerName;
+            break;
+        }
+
+    }
+}
+
+    $conn = new mysqli('localhost','root','password','fantasy_rugby');
+    if($conn->connect_error) {
+        die("Connection failed" . $conn->connect_error);
+    }
+    //remove old player
+    $removeOldPLayer = "UPDATE team_rosters SET TeamPosition= NULL AND OnTeam=0 WHERE TeamPosition=$playerNumNew";
+    echo "$removeOldPLayer";
+    mysqli_query($conn, $removeOldPLayer);
+
+    //get new players id
+        $getNewPlayersName = "SELECT PlayerID, PlayerName FROM players WHERE PlayerName=\"$playerNameNew\"";
+        if ($stmt = $con->prepare($getNewPlayersName)) {
+            $stmt->execute();
+            $stmt->bind_result($PlayerID, $PlayerName);
+
+            while ($stmt->fetch()) {
+                $PlayerIDNew = $PlayerID;
+
             }
-        });
 
 
-    });
-</script>
+
+        }
+
+    $addPlayerQuery = "UPDATE team_rosters SET TeamPosition=14 AND OnTeam=1 WHERE TeamID=1 AND PlayerID=$PlayerIDNew";
+    echo "$addPlayerQuery";
+    mysqli_query($conn, $addPlayerQuery);
+
+    //header("location: team.php");
+
+    }
+
+
+?>
+
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+        <label>Player</label>
+        <input type="text" name="PlayerNameNew" class="form-control" value="<?php echo $playerNameNew; ?>">
+    </div>
+    <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+        <label>Number to Replace on Team</label>
+        <input type="number" name="PlayerNum" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="AddPlayer">
+    </div>
