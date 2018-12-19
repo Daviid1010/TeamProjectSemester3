@@ -69,7 +69,7 @@ VALUES
 
 
 
-$userInsert = "INSERT INTO users(username,userPassword,score,TeamID) VALUES ($username, $pword, 100, $teamID)";
+$userInsert = "INSERT INTO users(username,userPassword,score,TeamID) VALUES ($username, $password, 100, $teamID)";
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }

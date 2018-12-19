@@ -336,8 +336,10 @@ form {
     background-color: #1c7430;
 }
 
-.selected {
-    background-color: orangered;
-    color: #FFF;
+#Game {
+    background-color: #1c7430;
+    color: white;
 }
+
+
 

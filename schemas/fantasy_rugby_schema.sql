@@ -32,9 +32,9 @@ CREATE TABLE teams (
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
 	UserID INTEGER AUTO_INCREMENT NOT NULL,
-    username VARCHAR(22),
-    pword VARCHAR(30),
-    score INTEGER,
+    Username VARCHAR(22),
+    UserPassword VARCHAR(255),
+    Score INTEGER,
     TeamID INTEGER,
     PRIMARY KEY (UserID),
     FOREIGN KEY (TeamID) REFERENCES teams(TeamID)
@@ -56,7 +56,7 @@ CREATE TABLE team_rosters (
     TeamID INTEGER,
     PlayerID INTEGER,
     games INTEGER,
-    OnTeam BINARY,
+    OnTeam INTEGER,
     TeamPosition INTEGER,
     PRIMARY KEY (TeamRosterID),
     FOREIGN KEY (TeamID) REFERENCES teams(TeamID),
@@ -76,4 +76,3 @@ CREATE TABLE league_tables (
     FOREIGN KEY (TeamID) REFERENCES teams(TeamID),
     FOREIGN KEY (LeagueID) REFERENCES leagues(LeagueID)
 );
-

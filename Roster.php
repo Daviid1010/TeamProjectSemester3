@@ -101,7 +101,7 @@ if ($stmt = $con->prepare($CheckRosterQuery)) {
 
         }
 
-    $addPlayerQuery = "UPDATE team_rosters SET TeamPosition=14, OnTeam=1 WHERE TeamID=1 AND PlayerID=$PlayerIDNew";
+    $addPlayerQuery = "UPDATE team_rosters SET TeamPosition=$playerNumNew, OnTeam=1 WHERE TeamID=1 AND PlayerID=$PlayerIDNew";
     echo "$addPlayerQuery";
     mysqli_query($conn, $addPlayerQuery);
 
