@@ -6,7 +6,7 @@
  * Date: 29/11/2018
  * Time: 10:33
  */
-$teamID = 1;
+$teamID = $_SESSION['teamID'];
 
 $query = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamID AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
 

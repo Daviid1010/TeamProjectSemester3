@@ -33,13 +33,13 @@ include 'Tests/imagestest.php';
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item a">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Team</a>
+        <a class="nav-link" href="team.php">Team</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Market</a>
+        <a class="nav-link" href="market.php">Market</a>
       </li>
 
     </ul>
@@ -60,17 +60,17 @@ include 'Tests/imagestest.php';
             <div class="playerRow">
                 <!--Front Row -->
                 <div class="playerBox full threeFull">
-                    <div  class="playerImage" style="background-image: url('images/<?php echo $filepathArr[0]?>')"></div>
+                    <div  class="playerImage" style="background-image: url('<?php echo $filepathArr[0]?>')"></div>
                     <div class="playerUnder">1. <span>Prop</span></div>
                 </div>
                 <div class="playerBox empty threeEmpty"></div>
                 <div class="playerBox full threeFull">
-                    <div class="playerImage" style="background-image: url('images/<?php echo $filepathArr[1]?>')"></div>
+                    <div class="playerImage" style="background-image: url('<?php echo $filepathArr[1]?>')"></div>
                     <div class="playerUnder">2. <span>Hooker</span></div>
                 </div>
                 <div class="playerBox empty threeEmpty"></div>
                 <div class="playerBox full threeFull">
-                    <div class="playerImage" style="background-image: url('images/<?php echo $filepathArr[2]?>')"></div>
+                    <div class="playerImage" style="background-image: url('<?php echo $filepathArr[2]?>')"></div>
                     <div class="playerUnder">3. <span>Prop</span></div>
                 </div>
             </div>
@@ -78,41 +78,41 @@ include 'Tests/imagestest.php';
             <div class="playerRow">
                 <div class="playerBox empty twoEmpty"></div>
                 <div class="playerBox full twoFull">
-                    <div class="playerImage" style="background-image: url('images/<?php echo $filepathArr[3]?>')"></div>
+                    <div class="playerImage" style="background-image: url('<?php echo $filepathArr[3]?>')"></div>
                     <div class="playerUnder">4. <span>Lock</span></div>
                 </div>
                 <div class="playerBox empty twoEmpty"></div>
                 <div class="playerBox full">
-                    <div class="playerImage" style="background-image: url('images/<?php echo $filepathArr[4]?>')"></div>
+                    <div class="playerImage" style="background-image: url('<?php echo $filepathArr[4]?>')"></div>
                     <div class="playerUnder">5. <span>Lock</span></div>
                 </div>
                 <div class="playerBox empty twoEmpty"></div>
             </div>
             <div class="playerRow">
                 <div class="playerBox full threeFull">
-                    <div class="playerImage" style="background-image: url('images/<?php echo $filepathArr[5]?>')"></div>
+                    <div class="playerImage" style="background-image: url('<?php echo $filepathArr[5]?>')"></div>
                     <div class="playerUnder">6. <span>Flanker</span></div>
                 </div>
                 <div class="playerBox empty threeEmpty"></div>
                 <div class="playerBox full threeFull">
-                    <div  class="playerImage" style="background-image: url('images/<?php echo $filepathArr[7]?>')"></div>
+                    <div  class="playerImage" style="background-image: url('<?php echo $filepathArr[7]?>')"></div>
                     <div class="playerUnder">8. <span>No. 8</span></div>
                 </div>
                 <div class="playerBox empty threeEmpty"></div>
                 <div class="playerBox full threeFull">
-                    <div class="playerImage" style="background-image: url('images/<?php echo $filepathArr[6]?>')"></div>
+                    <div class="playerImage" style="background-image: url('<?php echo $filepathArr[6]?>')"></div>
                     <div class="playerUnder">7. <span>Flanker</span></div>
                 </div>
             </div>
             <div class="playerRow">
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
-                    <div style="background-image: url('images/<?php echo $filepathArr[8]?>')" class="playerImage"></div>
+                    <div style="background-image: url('<?php echo $filepathArr[8]?>')" class="playerImage"></div>
                     <div class="playerUnder">9. <span>Scrum Half</span></div>
                 </div>
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
-                    <div style="background-image: url('images/<?php echo $filepathArr[9]?>')" class="playerImage"></div>
+                    <div style="background-image: url('<?php echo $filepathArr[9]?>')" class="playerImage"></div>
                     <div class="playerUnder">10. <span>Fly Half</span></div>
                 </div>
                 <div class="playerBox empty"></div>
@@ -120,29 +120,29 @@ include 'Tests/imagestest.php';
             <div class="playerRow">
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
-                    <div style="background-image: url('images/<?php echo $filepathArr[11]?>')" class="playerImage"></div>
+                    <div style="background-image: url('<?php echo $filepathArr[11]?>')" class="playerImage"></div>
                     <div class="playerUnder">12. <span>Centre</span></div>
                 </div>
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
-                    <div style="background-image: url('images/<?php echo $filepathArr[12]?>')" class="playerImage"></div>
+                    <div style="background-image: url('<?php echo $filepathArr[12]?>')" class="playerImage"></div>
                     <div class="playerUnder">13. <span>Centre</span></div>
                 </div>
                 <div class="playerBox empty"></div>
             </div>
             <div class="playerRow">
                 <div class="playerBox full">
-                    <div style="background-image: url('images/<?php echo $filepathArr[10]?>')" class="playerImage"></div>
+                    <div style="background-image: url('<?php echo $filepathArr[10]?>')" class="playerImage"></div>
                     <div class="playerUnder">11. <span>Winger</span></div>
                 </div>
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
-                    <div style="background-image: url('images/<?php echo $filepathArr[14]?>')" class="playerImage"></div>
+                    <div style="background-image: url('<?php echo $filepathArr[14]?>')" class="playerImage"></div>
                     <div class="playerUnder">15. <span>Full Back</span></div>
                 </div>
                 <div class="playerBox empty"></div>
                 <div class="playerBox full">
-                    <div style="background-image: url('images/<?php echo $filepathArr[13]?>')" class="playerImage"></div>
+                    <div style="background-image: url('<?php echo $filepathArr[13]?>')" class="playerImage"></div>
                     <div class="playerUnder">14. <span>Winger</span></div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
-include_once 'dbh.php';
 session_start();
+$database_name = "fantasy_rugby";
+$con = mysqli_connect("localhost", "root", "password", $database_name);
 ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -21,7 +22,7 @@ session_start();
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">HOME</a>
+                    <a class="nav-link" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="category.html">PLAY NOW <span class="sr-only">(current)</span></a>
@@ -33,7 +34,6 @@ session_start();
                     <a class="nav-link" href="Market.php">MARKET</a>
                 </li>
             </ul>
-
             <form action="search.php" method="POST">
                 <div class="input-group input-group-sm">
 
@@ -55,7 +55,6 @@ session_start();
     </div>
 </section>
 </div>
-
 <div class="container">
     <div class="row">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -71,7 +70,6 @@ session_start();
         </form>
     </div>
 </div>
-
 <?php
 $playerName = "";
 
@@ -102,9 +100,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->bind_result($Score);
         while ($stmt->fetch()) {
-           $userScore = $Score;
+            $userScore = $Score;
         }
-       $stmt->close();
+        $stmt->close();
 
     }
 
@@ -136,8 +134,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 ?>
-
-
 <div class="container">
     <div class="row">
         <div class="col">
@@ -183,7 +179,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card-header bg-success text-white text-uppercase"> ORDER MARKET BY</div>
                 <ul class="list-group category_block">
                     <li class="list-group-item"><a href="MarketPlayerName.php">PLAYER NAME</a></li>
-                    <li class="list-group-item"><a href="MarketPosition.php">POSITION</a></li>
+                    <li class="list-group-item"><a href="MarketPosition.php"><b>POSITION</b></a></li>
                     <li class="list-group-item"><a href="MarketProvince.php">PROVINCE</a></li>
                     <li class="list-group-item"><a href="MarketCaps.php">CAPS</a></li>
                     <li class="list-group-item"><a href="MarketPoints.php">POINTS</a></li>
@@ -194,7 +190,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card-body">
                     <img class="img-fluid" src="images/Leinster\MickKearney.png" />
                     <h5 class="card-title">Mick Kearney</h5>
-
                     <p class="bloc_left_price"><strike>100 Points</strike></p>
                     <b><p class="bloc_left_price">NOW 60 Points</p></b>
                     <div class="col">
@@ -204,13 +199,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="col">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase">ORDERED BY PLAYER POSITION</div>
 
+            </div>
             <div class="row">
 
                 <?php
-                    $query = "SELECT * FROM players ORDER BY PlayerID ASC";
-                    $result = mysqli_query($conn,$query);
-                    if(mysqli_num_rows($result) < 0);{
+                    $query = "SELECT * FROM players ORDER BY PlayerPosition ASC";
+                    $result = mysqli_query($con,$query);
+                    if(mysqli_num_rows($result) > 0);{
 
                         while ($row = mysqli_fetch_array($result)) {
 
@@ -254,6 +252,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 
+<!-- Footer -->
 <footer class="text-light">
     <div class="container">
         <div class="row">

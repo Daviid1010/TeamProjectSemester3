@@ -1,75 +1,133 @@
-<?php include 'connection.php' ;
+<?php
+// Initialize the session
+include "connection.php";
 session_start();
-$teamID = $_SESSION["teamID"];
+
+// Check if the user is already logged in, if yes then redirect him to welcome page
+
+// Include config file
+require_once "login/config.php";
+
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = "";
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    // Check if username is empty
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter username.";
+    } else{
+        $username = trim($_POST["username"]);
+    }
+
+    // Check if password is empty
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+
+    // Validate credentials
+    if(empty($username_err) && empty($password_err)){
+        // Prepare a select statement
+        $sql = "SELECT UserID, Username, UserPassword FROM users WHERE username = ?";
+
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
+
+            // Set parameters
+            $param_username = $username;
+
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                // Store result
+                mysqli_stmt_store_result($stmt);
+
+                // Check if username exists, if yes then verify password
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    // Bind result variables
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    if(mysqli_stmt_fetch($stmt)){
+                        if(password_verify($password, $hashed_password)){
+                            // Password is correct, so start a new session
+                            session_start();
+
+                            $query = "SELECT TeamID FROM users WHERE Username='$username'";
+
+
+                            if ($stmt = $con->prepare($query)) {
+                                $stmt->execute();
+                                $stmt->bind_result($TeamID);
+                                while ($stmt->fetch()) {
+                                    $teamID =  "$TeamID";
+                                }
+                                $stmt->close();
+                            }
+
+                            // Store data in session variables
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;
+                            $_SESSION["teamID"] = $teamID;
+
+                            // Redirect user to welcome page
+                            header("location: home.php");
+                        } else{
+                            // Display an error message if password is not valid
+                            $password_err = "The password you entered was not valid.";
+                        }
+                    }
+                } else{
+                    // Display an error message if username doesn't exist
+                    $username_err = "No account found with that username.";
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
+
+    // Close connection
+    mysqli_close($link);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Irish Fantasy Rugby</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css"/>
-    <link rel="stylesheet" href="css/bootstrap-grid.css"/>
-    <link rel="stylesheet" href="css/bootstrap-reboot.css"/>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="jumbotron">
+    <div class="container">
+    <h2>Login</h2>
 
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
-  <a class="navbar-brand" href="#">
-      <img id="brand-image" src="images/rugbylogo.png" alt="Italian Trulli">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="team.php">Team</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="market.php">Market</a>
-      </li>
-     
-    </ul>
-  </div>
-</nav>
-
-<br>
-
-    <div class="row">
-        <div class="col-lg-2 col-md-12  third" id="account">
-            <div id="accountinfo"  align="center">
-                <img src="images/davy.jpg" class="img-fluid rounded-circle">
-                <h2><?php echo $_SESSION['username']?></h2>
-                <br>
-                <h2>TeamID</h2>
-                <h3><?php echo $teamID;?></h3>
-                <br>
-                <h2>Losses</h2>
-                <h3>4</h3>
-                <br>
-                <h2>Points</h2>
-                <h3>615</h3>
-
-                <div id="play">
-                    Play Now
-                </div>
-            </div>
-
+    <p>Please fill in your credentials to login.</p>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+            <span class="help-block"><?php echo $username_err; ?></span>
         </div>
-        <div class="col-lg-5 col-md-12 players third" id="League">
-            <?php include "Tests/League.php"?>
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control">
+            <span class="help-block"><?php echo $password_err; ?></span>
         </div>
-
-        <div class="col-lg-5 col-md-12 players third" id="backs">
-            <?php include 'Tests/twittertest.php'?>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Login">
         </div>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
+        <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+    </form>
+    </div>
+</div>
 </body>
 </html>

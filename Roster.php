@@ -7,7 +7,7 @@
  */
 include "connection.php";
 
-$teamID = 1;//$_SESSION["teamID"];
+$teamID = $_SESSION["teamID"];
 
 $query = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamID AND OnTeam=0 ORDER BY team_rosters.TeamPosition ASC";
 
@@ -83,7 +83,7 @@ if ($stmt = $con->prepare($CheckRosterQuery)) {
     }
     //remove old player
     $removeOldPLayer = "UPDATE team_rosters SET TeamPosition = 0, OnTeam=0   WHERE TeamPosition=$playerNumNew";
-    echo "$removeOldPLayer<br>";
+    //echo "$removeOldPLayer<br>";
     mysqli_query($conn, $removeOldPLayer);
 
     //get new players id
@@ -101,11 +101,11 @@ if ($stmt = $con->prepare($CheckRosterQuery)) {
 
         }
 
-    $addPlayerQuery = "UPDATE team_rosters SET TeamPosition=$playerNumNew, OnTeam=1 WHERE TeamID=1 AND PlayerID=$PlayerIDNew";
+    $addPlayerQuery = "UPDATE team_rosters SET TeamPosition=$playerNumNew, OnTeam=1 WHERE TeamID=$teamID AND PlayerID=$PlayerIDNew";
     echo "$addPlayerQuery";
     mysqli_query($conn, $addPlayerQuery);
 
-    header("location: team.php");
+   header("location: team.php");
 
     }
 
@@ -113,14 +113,15 @@ if ($stmt = $con->prepare($CheckRosterQuery)) {
 ?>
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+    <div class="form-group input-group input-group-sm" style="height: 40px;">
         <label>Player</label>
         <input type="text" name="PlayerNameNew" class="form-control" value="<?php echo $playerNameNew; ?>">
     </div>
-    <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+    <div class="form-group input-group input-group-sm" style="height: 40px">
         <label>Number to Replace on Team</label>
         <input type="number" name="PlayerNum" class="form-control">
     </div>
     <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="AddPlayer">
+        <input type="submit" class="btn btn-primary" value="Add Player to Team">
     </div>
+</form>

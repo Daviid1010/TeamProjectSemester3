@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+require_once "login/config.php";
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -133,7 +133,7 @@ VALUES
                 session_start();
                 $_SESSION['username'] =  $param_username;
                 $_SESSION['teamID'] = $teamID;
-                header("location: ../home.php");
+                header("location: home.php");
             } else{
                 echo "Something went wrong. Please try again later." . $sql . " " . mysqli_error($conn);
             }
@@ -185,7 +185,7 @@ VALUES
             <input type="submit" class="btn btn-primary" value="Submit">
             <input type="reset" class="btn btn-default" value="Reset">
         </div>
-        <p>Already have an account? <a href="login.php">Login here</a>.</p>
+        <p>Already have an account? <a href="index.php">Login here</a>.</p>
     </form>
     </div>
 </div>

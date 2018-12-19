@@ -6,8 +6,11 @@
  * Time: 20:22
  */
 
+
+$teamUser = $_SESSION['teamID'];
+
 //team1
-$query1 = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=1 AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
+$query1 = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$teamUser AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
 $avg1= 0;
 $count1 = 1;
 $sum1 = 0;
@@ -54,11 +57,11 @@ if ($stmt1 = $con->prepare($query1)) {
 
 
 
+$teamsQ = "SELECT * FROM league_tables";
+$numRows = mysqli_num_rows(mysqli_query($con, $teamsQ));
+$idRand = rand(1, $numRows);
 
-
-
-
-$query2 = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=5 AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
+$query2 = "SELECT team_rosters.TeamPosition, PlayerName, PlayerPosition, Province, Rating FROM team_rosters JOIN players ON players.PlayerID = team_rosters.PlayerID WHERE team_rosters.TeamID=$idRand AND OnTeam=1 ORDER BY team_rosters.TeamPosition ASC";
 
 $avg2 = 0;
 $count2 = 1;
@@ -112,11 +115,11 @@ $oResult = 0;
 <div style="width: 100%; height: 300px; text-align: center; float: left;">
     <button id="#PlayNow" onclick="playNow()" style="float: left; height: 100%; width: 40%; margin: 0 auto; display: block; color: white; border: 1px white solid; background-color: #1c7430; font-size: 3em; font-weight: bold;" >play now</button>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" style="width: 60%; height: 100%; float: left; padding: 20px;">
-        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?> input-group input-group-sm">
             <label style="float: left; width: 100%; text-align: left;">Your Score    </label>
             <input type="Number" name="mScore" class="form-control" value="<?php echo $mResult; ?>" style="width: 20%;" id="mResult">
         </div>
-        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>" >
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?> input-group input-group-sm" style="height: 45px;">
             <label style="float: left; width: 100%; text-align: left;">Opponents Score</label>
             <input type="number" name="oScore" class="form-control" style="width: 20%;" value="<?php echo $oResult;?>" id="oResult">
         </div>
@@ -152,6 +155,7 @@ $oResult = 0;
 
     });
 */
+
     function playNow() {
 
         var a1 = <?php echo $avg1 ?>;
@@ -160,15 +164,19 @@ $oResult = 0;
         var randomNum =  Math.floor((Math.random() * 6) + 1);
         var t1 = a1 + (randomNum * 40);
         document.getElementById("mResult").value = Math.round(t1/10);
+        console.log(t1/10);
 
         randomNum = Math.floor((Math.random() * 6) + 1);
         var t2 = a2 + (randomNum * 40);
         document.getElementById("oResult").value =  + Math.round(t2/10);
+        console.log(t2/10);
 
         if(t1 > t2) {
             document.getElementById("result").innerHTML ="Your Team Won!";
         } else if (t2 > t1) {
             document.getElementById("result").innerHTML ="Opponent Wins!";
+            alert("Opponent WIns");
+            window.location('home.php');
         } else if (Math.round(t2/10) == Math.round(t1/10)) {
             document.getElementById("result").innerHTML ="draw";
         } else {
@@ -182,17 +190,22 @@ $oResult = 0;
 </script>
 
 <?php
+
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $mResult = trim($_POST["mScore"]);
-    $oResult = trim($_POST["oScore"]);
+    $mResult = $_POST["mScore"];
+    $oResult = $_POST["oScore"];
+    $username = $_SESSION['username'];
 
     if($mResult>$oResult) {
-        $updateLeague = "UPDATE league_tables SET wins= wins +1, points = points +3 WHERE TeamID=1";
-
+        $updateLeague = "UPDATE league_tables SET wins= wins +1, points = points +3 WHERE TeamID=$teamUser";
         mysqli_query($con, $updateLeague);
-        header("location: ../index.php");
+        $updateUserSocre = "UPDATE users SET Score = Score + 50 WHERE username=\"$username\"";
+        echo "$updateUserSocre";
+        mysqli_query($con,$updateUserSocre);
+        echo "<h2>Changes saved!</h2>";
     } else {
-        header("location: ../index.php");
+        echo "<h2>Changes not saved</h2>";
     }
 
 

@@ -1,7 +1,17 @@
+
+/**
+* Created by PhpStorm.
+* User: Keith
+* Date: 08/12/2018
+* Time: 19:31
+*/
+
 <?php
-include_once 'dbh.php';
 session_start();
+$database_name = "fantasy_rugby";
+$con = mysqli_connect("localhost", "root", "password", $database_name);
 ?>
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -21,7 +31,7 @@ session_start();
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">HOME</a>
+                    <a class="nav-link" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="category.html">PLAY NOW <span class="sr-only">(current)</span></a>
@@ -33,7 +43,6 @@ session_start();
                     <a class="nav-link" href="Market.php">MARKET</a>
                 </li>
             </ul>
-
             <form action="search.php" method="POST">
                 <div class="input-group input-group-sm">
 
@@ -55,7 +64,6 @@ session_start();
     </div>
 </section>
 </div>
-
 <div class="container">
     <div class="row">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -71,7 +79,6 @@ session_start();
         </form>
     </div>
 </div>
-
 <?php
 $playerName = "";
 
@@ -102,9 +109,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->bind_result($Score);
         while ($stmt->fetch()) {
-           $userScore = $Score;
+            $userScore = $Score;
         }
-       $stmt->close();
+        $stmt->close();
 
     }
 
@@ -136,8 +143,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 ?>
-
-
 <div class="container">
     <div class="row">
         <div class="col">
@@ -182,7 +187,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="card bg-light mb-3">
                 <div class="card-header bg-success text-white text-uppercase"> ORDER MARKET BY</div>
                 <ul class="list-group category_block">
-                    <li class="list-group-item"><a href="MarketPlayerName.php">PLAYER NAME</a></li>
+                    <li class="list-group-item"><a href="MarketPlayerName.php"><b>PLAYER NAME</b></a></li>
                     <li class="list-group-item"><a href="MarketPosition.php">POSITION</a></li>
                     <li class="list-group-item"><a href="MarketProvince.php">PROVINCE</a></li>
                     <li class="list-group-item"><a href="MarketCaps.php">CAPS</a></li>
@@ -194,7 +199,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card-body">
                     <img class="img-fluid" src="images/Leinster\MickKearney.png" />
                     <h5 class="card-title">Mick Kearney</h5>
-
                     <p class="bloc_left_price"><strike>100 Points</strike></p>
                     <b><p class="bloc_left_price">NOW 60 Points</p></b>
                     <div class="col">
@@ -204,49 +208,52 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="col">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase">ORDERED BY PLAYER NAME</div>
 
+            </div>
             <div class="row">
 
                 <?php
-                    $query = "SELECT * FROM players ORDER BY PlayerID ASC";
-                    $result = mysqli_query($conn,$query);
-                    if(mysqli_num_rows($result) < 0);{
+                $query = "SELECT * FROM players ORDER BY PlayerName ASC";
+                $result = mysqli_query($con,$query);
+                if(mysqli_num_rows($result) > 0);{
 
-                        while ($row = mysqli_fetch_array($result)) {
-
-
-                            ?>
-
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <img class="card-img-top" src="<?php echo $row["ImageFilePath"] ?>" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4 class="card-title"><a href="product.html" title="View Product">Player Details</a></h4>
-
-                                        <ul>
-                                            <li><b>Name:  </b><?php echo $row["PlayerName"]; ?></li>
-                                            <li><b>Position: </b><?php echo $row["PlayerPosition"]; ?></li>
-                                            <li><b>Province: </b><?php echo $row["Province"]; ?></li>
-                                            <li><b>Caps: </b><?php echo $row["Caps"]; ?></li>
-                                            <li><b>Points: </b><?php echo $row["Points"]; ?></li>
-                                        </ul>
+                    while ($row = mysqli_fetch_array($result)) {
 
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <p class="btn btn-danger btn-block">Points <?php echo $row["Points"]; ?></p>
-                                            </div>
-                                            <div class="col">
-                                                <a href="#" class="btn btn-success btn-block">ADD</a>
-                                            </div>
+                        ?>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <img class="card-img-top" src="<?php echo $row["ImageFilePath"] ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title"><a href="product.html" title="View Product">Player Details</a></h4>
+
+                                    <ul>
+                                        <li><b>Name:  </b><?php echo $row["PlayerName"]; ?></li>
+                                        <li><b>Position: </b><?php echo $row["PlayerPosition"]; ?></li>
+                                        <li><b>Province: </b><?php echo $row["Province"]; ?></li>
+                                        <li><b>Caps: </b><?php echo $row["Caps"]; ?></li>
+                                        <li><b>Points: </b><?php echo $row["Points"]; ?></li>
+                                    </ul>
+
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="btn btn-danger btn-block">Points <?php echo $row["Points"]; ?></p>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#" class="btn btn-success btn-block">ADD</a>
                                         </div>
                                     </div>
                                 </div>
-                                <br>
                             </div>
-                            <?php
-                        }
+                            <br>
+                        </div>
+                        <?php
                     }
+                }
                 ?>
             </div>
         </div>

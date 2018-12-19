@@ -1,6 +1,79 @@
+
+/**
+* Created by PhpStorm.
+* User: Keith
+* Date: 08/12/2018
+* Time: 19:31
+*/
+
 <?php
-include_once 'dbh.php';
 session_start();
+$database_name = "fantasy_rugby";
+$con = mysqli_connect("localhost", "root", "password", $database_name);
+?>
+<?php
+$playerName = "";
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $playerName =  $_POST['playerName'];
+    $playerPrice = 0;
+    $playerID = 0;
+    $userScore = 0;
+
+    $playerSelectQ = "SELECT PlayerID from players WHERE PlayerName=\"$playerName\"";
+
+    include 'connection.php';
+
+    if ($stmt = $con->prepare($playerSelectQ)) {
+        $stmt->execute();
+        $stmt->bind_result($PlayerID);
+        while ($stmt->fetch()) {
+            $playerID = $PlayerID;
+        }
+        $stmt->close();
+    }
+
+    $username = $_SESSION['username'];
+
+    $SelectUserPoints = "SELECT Score FROM users WHERE username=\"$username\"";
+
+    if($stmt = $con->prepare($SelectUserPoints)) {
+        $stmt->execute();
+        $stmt->bind_result($Score);
+        while ($stmt->fetch()) {
+            $userScore = $Score;
+        }
+        $stmt->close();
+
+    }
+
+
+    $getPlayerPrice = "SELECT Points From players WHERE PlayerName=\"$playerName\"";
+
+
+
+    if ($stmt = $con->prepare($getPlayerPrice)) {
+        $stmt->execute();
+        $stmt->bind_result($Points);
+        while ($stmt->fetch()) {
+            //printf("%s\n", $Points);
+            $playerPrice = $Points;
+        }
+        $stmt->close();
+    }
+
+    if($userScore>=$playerPrice) {
+        $teamID = $_SESSION['teamID'];
+        $InsertTeamRoster = "INSERT INTO team_rosters (TeamID,PlayerID, games, OnTeam, TeamPosition) VALUES ($teamID,$playerID,0,0,0)";
+        mysqli_query($conn, $InsertTeamRoster);
+        $UpdateUserScore = "UPDATE users SET Score = Score - $playerPrice WHERE username=\"$username\"";
+        mysqli_query($conn, $UpdateUserScore);
+        echo "<h2>Transaction Complete, Player Add to your Roster!</h2>";
+    } else {
+        echo "<h2>Insufficient Funds</h2>";
+    }
+
+}
 ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -21,7 +94,7 @@ session_start();
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">HOME</a>
+                    <a class="nav-link" href="index.php">HOME</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="category.html">PLAY NOW <span class="sr-only">(current)</span></a>
@@ -55,7 +128,6 @@ session_start();
     </div>
 </section>
 </div>
-
 <div class="container">
     <div class="row">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -71,7 +143,11 @@ session_start();
         </form>
     </div>
 </div>
-
+<?php
+session_start();
+$database_name = "fantasy_rugby";
+$con = mysqli_connect("localhost", "root", "password", $database_name);
+?>
 <?php
 $playerName = "";
 
@@ -102,9 +178,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->bind_result($Score);
         while ($stmt->fetch()) {
-           $userScore = $Score;
+            $userScore = $Score;
         }
-       $stmt->close();
+        $stmt->close();
 
     }
 
@@ -136,8 +212,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 ?>
-
-
 <div class="container">
     <div class="row">
         <div class="col">
@@ -185,7 +259,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li class="list-group-item"><a href="MarketPlayerName.php">PLAYER NAME</a></li>
                     <li class="list-group-item"><a href="MarketPosition.php">POSITION</a></li>
                     <li class="list-group-item"><a href="MarketProvince.php">PROVINCE</a></li>
-                    <li class="list-group-item"><a href="MarketCaps.php">CAPS</a></li>
+                    <li class="list-group-item"><a href="MarketCaps.php"><b>CAPS</b></a></li>
                     <li class="list-group-item"><a href="MarketPoints.php">POINTS</a></li>
                 </ul>
             </div>
@@ -194,7 +268,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card-body">
                     <img class="img-fluid" src="images/Leinster\MickKearney.png" />
                     <h5 class="card-title">Mick Kearney</h5>
-
                     <p class="bloc_left_price"><strike>100 Points</strike></p>
                     <b><p class="bloc_left_price">NOW 60 Points</p></b>
                     <div class="col">
@@ -204,13 +277,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="col">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase">ORDERED BY CAPS</div>
 
+            </div>
             <div class="row">
 
                 <?php
-                    $query = "SELECT * FROM players ORDER BY PlayerID ASC";
-                    $result = mysqli_query($conn,$query);
-                    if(mysqli_num_rows($result) < 0);{
+                    $query = "SELECT * FROM playermarket ORDER BY Caps DESC";
+                    $result = mysqli_query($con,$query);
+                    if(mysqli_num_rows($result) > 0);{
 
                         while ($row = mysqli_fetch_array($result)) {
 
@@ -268,7 +344,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h5>Others links</h5>
                 <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                 <ul class="list-unstyled">
-                    <li><a href="">TEAM MENU</a></li>
+                    <li><a href="index.php">TEAM MENU</a></li>
                     <li><a href="">PLAY NOW</a></li>
                 </ul>
             </div>

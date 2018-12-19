@@ -1,7 +1,12 @@
-<?php
-include_once 'dbh.php';
-session_start();
-?>
+
+/**
+* Created by PhpStorm.
+* User: Keith
+* Date: 08/12/2018
+* Time: 19:31
+*/
+
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -30,7 +35,7 @@ session_start();
                     <a class="nav-link" href="product.html">TEAM</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Market.php">MARKET</a>
+                    <a class="nav-link" href="cart.html">MARKET</a>
                 </li>
             </ul>
 
@@ -55,7 +60,6 @@ session_start();
     </div>
 </section>
 </div>
-
 <div class="container">
     <div class="row">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -71,7 +75,11 @@ session_start();
         </form>
     </div>
 </div>
-
+<?php
+session_start();
+$database_name = "fantasy_rugby";
+$con = mysqli_connect("localhost", "root", "password", $database_name);
+?>
 <?php
 $playerName = "";
 
@@ -102,9 +110,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->bind_result($Score);
         while ($stmt->fetch()) {
-           $userScore = $Score;
+            $userScore = $Score;
         }
-       $stmt->close();
+        $stmt->close();
 
     }
 
@@ -136,8 +144,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 ?>
-
-
 <div class="container">
     <div class="row">
         <div class="col">
@@ -184,7 +190,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <ul class="list-group category_block">
                     <li class="list-group-item"><a href="MarketPlayerName.php">PLAYER NAME</a></li>
                     <li class="list-group-item"><a href="MarketPosition.php">POSITION</a></li>
-                    <li class="list-group-item"><a href="MarketProvince.php">PROVINCE</a></li>
+                    <li class="list-group-item"><a href="MarketProvince.php"><b>PROVINCE</b></a></li>
                     <li class="list-group-item"><a href="MarketCaps.php">CAPS</a></li>
                     <li class="list-group-item"><a href="MarketPoints.php">POINTS</a></li>
                 </ul>
@@ -194,7 +200,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card-body">
                     <img class="img-fluid" src="images/Leinster\MickKearney.png" />
                     <h5 class="card-title">Mick Kearney</h5>
-
                     <p class="bloc_left_price"><strike>100 Points</strike></p>
                     <b><p class="bloc_left_price">NOW 60 Points</p></b>
                     <div class="col">
@@ -204,13 +209,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="col">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase">ORDERED BY PROVINCE</div>
 
+            </div>
             <div class="row">
 
                 <?php
-                    $query = "SELECT * FROM players ORDER BY PlayerID ASC";
-                    $result = mysqli_query($conn,$query);
-                    if(mysqli_num_rows($result) < 0);{
+                    $query = "SELECT * FROM players ORDER BY Province ASC";
+                    $result = mysqli_query($con,$query);
+                    if(mysqli_num_rows($result) > 0);{
 
                         while ($row = mysqli_fetch_array($result)) {
 
@@ -234,7 +242,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">Points <?php echo $row["Points"]; ?></p>
+                                                <p class="btn btn-danger btn-block">70 Points</p>
                                             </div>
                                             <div class="col">
                                                 <a href="#" class="btn btn-success btn-block">ADD</a>
@@ -248,6 +256,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                     }
                 ?>
+
+
             </div>
         </div>
 
