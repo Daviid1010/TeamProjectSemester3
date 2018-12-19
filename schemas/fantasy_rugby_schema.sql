@@ -76,3 +76,5 @@ CREATE TABLE league_tables (
     FOREIGN KEY (TeamID) REFERENCES teams(TeamID),
     FOREIGN KEY (LeagueID) REFERENCES leagues(LeagueID)
 );
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
